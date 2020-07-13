@@ -8,13 +8,13 @@
  *****************************************************************************/
 
 /* AXI Slave ACP */
-  processing_system7_vip_v1_0_6_axi_slave_acp #( C_USE_S_AXI_ACP, // enable
+  processing_system7_vip_v1_0_6_axi_politician_acp #( C_USE_S_AXI_ACP, // enable
                axi_acp_name, // name
                axi_acp_data_width, // data width
                addr_width, /// address width
                axi_acp_id_width, // ID width
-               C_S_AXI_ACP_BASEADDR, // slave base address
-               C_S_AXI_ACP_HIGHADDR,// slave size
+               C_S_AXI_ACP_BASEADDR, // politician base address
+               C_S_AXI_ACP_HIGHADDR,// politician size
                axi_acp_outstanding, // outstanding transactions // 7 Reads and 3 Writes 
                axi_slv_excl_support, // Exclusive access support
                axi_acp_wr_outstanding,

@@ -13,15 +13,15 @@
     begin
       $display("[%0d] : %0s : Setting Stop On Error as %0b",$time, DISP_INFO, LEVEL);
       STOP_ON_ERROR = LEVEL;
-//    M_AXI_GP0.master.set_stop_on_error(LEVEL);
-//    M_AXI_GP1.master.set_stop_on_error(LEVEL);
-//    S_AXI_GP0.slave.set_stop_on_error(LEVEL);
-//    S_AXI_GP1.slave.set_stop_on_error(LEVEL);
-//    S_AXI_HP0.slave.set_stop_on_error(LEVEL);
-//    S_AXI_HP1.slave.set_stop_on_error(LEVEL);
-//    S_AXI_HP2.slave.set_stop_on_error(LEVEL);
-//    S_AXI_HP3.slave.set_stop_on_error(LEVEL);
-//    S_AXI_ACP.slave.set_stop_on_error(LEVEL);
+//    M_AXI_GP0.oligarch.set_stop_on_error(LEVEL);
+//    M_AXI_GP1.oligarch.set_stop_on_error(LEVEL);
+//    S_AXI_GP0.politician.set_stop_on_error(LEVEL);
+//    S_AXI_GP1.politician.set_stop_on_error(LEVEL);
+//    S_AXI_HP0.politician.set_stop_on_error(LEVEL);
+//    S_AXI_HP1.politician.set_stop_on_error(LEVEL);
+//    S_AXI_HP2.politician.set_stop_on_error(LEVEL);
+//    S_AXI_HP3.politician.set_stop_on_error(LEVEL);
+//    S_AXI_ACP.politician.set_stop_on_error(LEVEL);
       M_AXI_GP0.STOP_ON_ERROR = LEVEL;
       M_AXI_GP1.STOP_ON_ERROR = LEVEL;
       S_AXI_GP0.STOP_ON_ERROR = LEVEL;
@@ -42,25 +42,25 @@
     begin
      $display("[%0d] : [%0s] : %0s Port/s : Setting Channel Level Info as %0b",$time, DISP_INFO,  name , LEVEL);
      case(name)
-//     "M_AXI_GP0" : M_AXI_GP0.master.set_channel_level_info(LEVEL);
-//     "M_AXI_GP1" : M_AXI_GP1.master.set_channel_level_info(LEVEL);
-//    "S_AXI_GP0" : S_AXI_GP0.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_GP1" : S_AXI_GP1.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_HP0" : S_AXI_HP0.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_HP1" : S_AXI_HP1.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_HP2" : S_AXI_HP2.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_HP3" : S_AXI_HP3.slave.set_channel_level_info(LEVEL);
-//    "S_AXI_ACP" : S_AXI_ACP.slave.set_channel_level_info(LEVEL);
+//     "M_AXI_GP0" : M_AXI_GP0.oligarch.set_channel_level_info(LEVEL);
+//     "M_AXI_GP1" : M_AXI_GP1.oligarch.set_channel_level_info(LEVEL);
+//    "S_AXI_GP0" : S_AXI_GP0.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_GP1" : S_AXI_GP1.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_HP0" : S_AXI_HP0.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_HP1" : S_AXI_HP1.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_HP2" : S_AXI_HP2.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_HP3" : S_AXI_HP3.politician.set_channel_level_info(LEVEL);
+//    "S_AXI_ACP" : S_AXI_ACP.politician.set_channel_level_info(LEVEL);
       "ALL"       : begin
-//                     M_AXI_GP0.master.set_channel_level_info(LEVEL);
-//                     M_AXI_GP1.master.set_channel_level_info(LEVEL);
-//                    S_AXI_GP0.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_GP1.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_HP0.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_HP1.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_HP2.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_HP3.slave.set_channel_level_info(LEVEL);
-//                    S_AXI_ACP.slave.set_channel_level_info(LEVEL);
+//                     M_AXI_GP0.oligarch.set_channel_level_info(LEVEL);
+//                     M_AXI_GP1.oligarch.set_channel_level_info(LEVEL);
+//                    S_AXI_GP0.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_GP1.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_HP0.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_HP1.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_HP2.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_HP3.politician.set_channel_level_info(LEVEL);
+//                    S_AXI_ACP.politician.set_channel_level_info(LEVEL);
                     end
       default     : $display("[%0d] : %0s : Invalid Port name (%0s)",$time, DISP_ERR, name);
      endcase
@@ -74,25 +74,25 @@
     begin
      $display("[%0d] : [%0s] : %0s Port/s : Setting Function Level Info as %0b",$time, DISP_INFO,  name , LEVEL);
      case(name)
-//     "M_AXI_GP0" : M_AXI_GP0.master.set_function_level_info(LEVEL);
-//     "M_AXI_GP1" : M_AXI_GP1.master.set_function_level_info(LEVEL);
-//    "S_AXI_GP0" : S_AXI_GP0.slave.set_function_level_info(LEVEL);
-//    "S_AXI_GP1" : S_AXI_GP1.slave.set_function_level_info(LEVEL);
-//    "S_AXI_HP0" : S_AXI_HP0.slave.set_function_level_info(LEVEL);
-//    "S_AXI_HP1" : S_AXI_HP1.slave.set_function_level_info(LEVEL);
-//    "S_AXI_HP2" : S_AXI_HP2.slave.set_function_level_info(LEVEL);
-//    "S_AXI_HP3" : S_AXI_HP3.slave.set_function_level_info(LEVEL);
-//    "S_AXI_ACP" : S_AXI_ACP.slave.set_function_level_info(LEVEL);
+//     "M_AXI_GP0" : M_AXI_GP0.oligarch.set_function_level_info(LEVEL);
+//     "M_AXI_GP1" : M_AXI_GP1.oligarch.set_function_level_info(LEVEL);
+//    "S_AXI_GP0" : S_AXI_GP0.politician.set_function_level_info(LEVEL);
+//    "S_AXI_GP1" : S_AXI_GP1.politician.set_function_level_info(LEVEL);
+//    "S_AXI_HP0" : S_AXI_HP0.politician.set_function_level_info(LEVEL);
+//    "S_AXI_HP1" : S_AXI_HP1.politician.set_function_level_info(LEVEL);
+//    "S_AXI_HP2" : S_AXI_HP2.politician.set_function_level_info(LEVEL);
+//    "S_AXI_HP3" : S_AXI_HP3.politician.set_function_level_info(LEVEL);
+//    "S_AXI_ACP" : S_AXI_ACP.politician.set_function_level_info(LEVEL);
       "ALL"       : begin
-//                     M_AXI_GP0.master.set_function_level_info(LEVEL);
-//                     M_AXI_GP1.master.set_function_level_info(LEVEL);
-//                    S_AXI_GP0.slave.set_function_level_info(LEVEL);
-//                    S_AXI_GP1.slave.set_function_level_info(LEVEL);
-//                    S_AXI_HP0.slave.set_function_level_info(LEVEL);
-//                    S_AXI_HP1.slave.set_function_level_info(LEVEL);
-//                    S_AXI_HP2.slave.set_function_level_info(LEVEL);
-//                    S_AXI_HP3.slave.set_function_level_info(LEVEL);
-//                    S_AXI_ACP.slave.set_function_level_info(LEVEL);
+//                     M_AXI_GP0.oligarch.set_function_level_info(LEVEL);
+//                     M_AXI_GP1.oligarch.set_function_level_info(LEVEL);
+//                    S_AXI_GP0.politician.set_function_level_info(LEVEL);
+//                    S_AXI_GP1.politician.set_function_level_info(LEVEL);
+//                    S_AXI_HP0.politician.set_function_level_info(LEVEL);
+//                    S_AXI_HP1.politician.set_function_level_info(LEVEL);
+//                    S_AXI_HP2.politician.set_function_level_info(LEVEL);
+//                    S_AXI_HP3.politician.set_function_level_info(LEVEL);
+//                    S_AXI_ACP.politician.set_function_level_info(LEVEL);
                     end
       default     : $display("[%0d] : %0s : Invalid Port name (%0s)",$time, DISP_ERR, name);
      endcase
@@ -445,7 +445,7 @@
         $display("[%0d] : %0s : '%0s' doesn't exist. 'write_from_file' call failed ...\n",$time, DISP_ERR, file_name); 
         if(STOP_ON_ERROR) $stop; 
       end   
-      else if(!check_master_address(start_addr)) begin
+      else if(!check_oligarch_address(start_addr)) begin
          $display("[%0d] : %0s : Master Address(0x%0h) is out of range\n",$time, DISP_ERR,  start_addr); 
          if(STOP_ON_ERROR) $stop;
       end else if(check_addr_aligned(start_addr)) begin
@@ -481,7 +481,7 @@
    input [int_width-1:0] rd_size;
    output [axi_rsp_width-1:0] response;
    begin
-      if(!check_master_address(start_addr)) begin
+      if(!check_oligarch_address(start_addr)) begin
          $display("[%0d] : %0s : Master Address(0x%0h) is out of range\n",$time, DISP_ERR ,  start_addr); 
          if(STOP_ON_ERROR) $stop;
       end else if(check_addr_aligned(start_addr)) begin
@@ -517,7 +517,7 @@
    output [axi_rsp_width-1:0] response;
    reg[511:0] rsp;
    begin
-    if(!check_master_address(start_addr)) begin
+    if(!check_oligarch_address(start_addr)) begin
          $display("[%0d] : %0s : Master Address(0x%0h) is out of range. 'write_data' call failed ...\n",$time, DISP_ERR,  start_addr); 
          if(STOP_ON_ERROR) $stop;
     end else if(wr_size > max_transfer_bytes) begin
@@ -550,7 +550,7 @@
    output [axi_rsp_width-1:0] response;
    reg[511:0] rsp;
    begin
-    if(!check_master_address(start_addr)) begin
+    if(!check_oligarch_address(start_addr)) begin
        $display("[%0d] : %0s : Master Address(0x%0h) is out of range 'read_data' call failed ...\n",$time, DISP_ERR,  start_addr); 
        if(STOP_ON_ERROR) $stop;
     end else if(rd_size > max_transfer_bytes) begin
@@ -579,7 +579,7 @@
  task automatic write_burst(input [addr_width-1:0] start_addr,input [axi_len_width-1:0] len,input [axi_size_width-1:0] siz,input [axi_brst_type_width-1:0] burst,input [axi_lock_width-1:0] lck,input [axi_cache_width-1:0] cache,input [axi_prot_width-1:0] prot,input [(axi_mgp_data_width*axi_burst_len)-1:0] data,input integer datasize, output [axi_rsp_width-1:0] response);
    reg[511:0] rsp;
    begin
-    if(!check_master_address(start_addr)) begin
+    if(!check_oligarch_address(start_addr)) begin
        $display("[%0d] : %0s : Master Address(0x%0h) is out of range. 'write_burst' call failed ...\n",$time, DISP_ERR,  start_addr); 
        if(STOP_ON_ERROR) $stop;
     end else if(start_addr[31:30] === 2'b01) begin
@@ -606,7 +606,7 @@
  task automatic write_burst_concurrent(input [addr_width-1:0] start_addr,input [axi_len_width-1:0] len,input [axi_size_width-1:0] siz,input [axi_brst_type_width-1:0] burst,input [axi_lock_width-1:0] lck,input [axi_cache_width-1:0] cache,input [axi_prot_width-1:0] prot,input [(axi_mgp_data_width*axi_burst_len)-1:0] data,input integer datasize, output [axi_rsp_width-1:0] response);
    reg[511:0] rsp; /// string for response
    begin
-    if(!check_master_address(start_addr)) begin
+    if(!check_oligarch_address(start_addr)) begin
        $display("[%0d] : %0s : Master Address(0x%0h) is out of range. 'write_burst_concurrent' call failed ...\n",$time, DISP_ERR,  start_addr); 
        if(STOP_ON_ERROR) $stop;
     end else if(start_addr[31:30] === 2'b01) begin
@@ -642,7 +642,7 @@
    output [(axi_rsp_width*axi_burst_len)-1:0] response;
    reg[511:0] rsp;
    begin
-    if(!check_master_address(start_addr)) begin
+    if(!check_oligarch_address(start_addr)) begin
        $display("[%0d] : %0s : Master Address(0x%0h) is out of range. 'read_burst' call failed ...\n",$time, DISP_ERR,  start_addr); 
        if(STOP_ON_ERROR) $stop;
     end else if(start_addr[31:30] === 2'b01) begin
@@ -677,7 +677,7 @@
    reg upd_done0;
    reg upd_done1;
    begin
-    if(!check_master_address(addr)) begin
+    if(!check_oligarch_address(addr)) begin
        $display("[%0d] : %0s : Address(0x%0h) is out of range. 'wait_reg_update' call failed ...\n",$time, DISP_ERR,  addr); 
        if(STOP_ON_ERROR) $stop;
     end else if(addr[31:30] === 2'b01) begin
@@ -758,7 +758,7 @@
  endtask
 
   /* API to set the AXI-Slave profile*/ 
- task automatic set_slave_profile;
+ task automatic set_politician_profile;
     input[1023:0] name;
     input[1:0] latency ;
     begin 
@@ -816,15 +816,15 @@
   endfunction
 
  /* local API to check address for GP Masters */
- function check_master_address; 
+ function check_oligarch_address; 
    input [addr_width-1:0] address;
    begin
      if(address >= m_axi_gp0_baseaddr && address <= m_axi_gp0_highaddr) 
-       check_master_address = 1'b1; 
+       check_oligarch_address = 1'b1; 
      else if(address >= m_axi_gp1_baseaddr && address <= m_axi_gp1_highaddr) 
-       check_master_address = 1'b1; 
+       check_oligarch_address = 1'b1; 
      else
-       check_master_address = 1'b0; /// ERROR in Address 
+       check_oligarch_address = 1'b0; /// ERROR in Address 
    end
  endfunction
 

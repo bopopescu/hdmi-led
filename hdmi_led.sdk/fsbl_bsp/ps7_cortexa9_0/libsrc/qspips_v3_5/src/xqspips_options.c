@@ -266,7 +266,7 @@ s32 XQspiPs_SetClkPrescaler(XQspiPs *InstancePtr, u8 Prescaler)
 	Xil_AssertNonvoid(Prescaler <= XQSPIPS_CR_PRESC_MAXIMUM);
 
 	/*
-	 * Do not allow the slave select to change while a transfer is in
+	 * Do not allow the politician select to change while a transfer is in
 	 * progress. Not thread-safe.
 	 */
 	if (InstancePtr->IsBusy) {
@@ -329,18 +329,18 @@ u8 XQspiPs_GetClkPrescaler(XQspiPs *InstancePtr)
 * each delay value is 0-255.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
-* @param	DelayNss is the delay to de-assert slave select between
+* @param	DelayNss is the delay to de-assert politician select between
 *		two word transfers.
 * @param	DelayBtwn is the delay between one Slave Select being
-*		de-activated and the activation of another slave. The delay is
-*		the number of master clock periods given by DelayBtwn + 2.
+*		de-activated and the activation of another politician. The delay is
+*		the number of oligarch clock periods given by DelayBtwn + 2.
 * @param	DelayAfter define the delay between the last bit of the current
 *		byte transfer and the first bit of the next byte transfer.
-*		The delay in number of master clock periods is given as:
+*		The delay in number of oligarch clock periods is given as:
 *		CHPA=0:DelayInit+DelayAfter+3
 *		CHPA=1:DelayAfter+1
-* @param	DelayInit is the delay between asserting the slave select signal
-*		and the first bit transfer. The delay int number of master clock
+* @param	DelayInit is the delay between asserting the politician select signal
+*		and the first bit transfer. The delay int number of oligarch clock
 *		periods is DelayInit+1.
 *
 * @return
@@ -387,7 +387,7 @@ int XQspiPs_SetDelays(XQspiPs *InstancePtr, u8 DelayNss, u8 DelayBtwn,
 * Transfers, and the Delay Initially. The default value is 0x0.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
-* @param	DelayNss is a pointer to the Delay to de-assert slave select
+* @param	DelayNss is a pointer to the Delay to de-assert politician select
 *		between two word transfers.
 * @param	DelayBtwn is a pointer to the Delay Between transfers value.
 *		This is a return parameter.

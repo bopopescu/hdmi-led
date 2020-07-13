@@ -10,7 +10,7 @@
       <spirit:displayName>S_AXI_LITE</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -443,7 +443,7 @@
       <spirit:displayName>s_axi_aclk</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -513,7 +513,7 @@
       <spirit:displayName>ref_clk</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -593,7 +593,7 @@
       <spirit:displayName>S_AXI_RESETN</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -636,7 +636,7 @@
       <spirit:displayName>Intr</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -681,7 +681,7 @@
       <spirit:description>Differential Clock input</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -745,7 +745,7 @@
       <spirit:description>Differential Clock input</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -809,7 +809,7 @@
       <spirit:description>Differential Feedback Clock input</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -862,7 +862,7 @@
       <spirit:description>Differential Feeback Clock Output</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="diff_clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -914,7 +914,7 @@
       <spirit:displayName>reset</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -957,7 +957,7 @@
       <spirit:displayName>resetn</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -999,7 +999,7 @@
       <spirit:name>clock_CLK_IN1</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -1075,7 +1075,7 @@
       <spirit:name>clock_CLK_OUT1</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

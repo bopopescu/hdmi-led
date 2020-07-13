@@ -6980,9 +6980,9 @@ parameter gpv_iou_switch__security5_miou = 32'hE0200014;
 parameter val_gpv_iou_switch__security5_miou = 32'h00000000;
 parameter mask_gpv_iou_switch__security5_miou = 32'h00000001;
 
-parameter gpv_iou_switch__security6_apb_slaves = 32'hE0200018;
-parameter val_gpv_iou_switch__security6_apb_slaves = 32'h00000000;
-parameter mask_gpv_iou_switch__security6_apb_slaves = 32'h00007FFF;
+parameter gpv_iou_switch__security6_apb_politicians = 32'hE0200018;
+parameter val_gpv_iou_switch__security6_apb_politicians = 32'h00000000;
+parameter mask_gpv_iou_switch__security6_apb_politicians = 32'h00007FFF;
 
 parameter gpv_iou_switch__security7_smc = 32'hE020001C;
 parameter val_gpv_iou_switch__security7_smc = 32'h00000000;

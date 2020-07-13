@@ -135,12 +135,12 @@ MMUTable:
 .endr
 
 
-.rept	0x0400			/* 0x40000000 - 0x7fffffff (FPGA slave0) */
+.rept	0x0400			/* 0x40000000 - 0x7fffffff (FPGA politician0) */
 .word	SECT + 0xc02		/* S=b0 TEX=b000 AP=b11, Domain=b0, C=b0, B=b0 */
 .set	SECT, SECT+0x100000
 .endr
 
-.rept	0x0400			/* 0x80000000 - 0xbfffffff (FPGA slave1) */
+.rept	0x0400			/* 0x80000000 - 0xbfffffff (FPGA politician1) */
 .word	SECT + 0xc02		/* S=b0 TEX=b000 AP=b11, Domain=b0, C=b0, B=b0 */
 .set	SECT, SECT+0x100000
 .endr

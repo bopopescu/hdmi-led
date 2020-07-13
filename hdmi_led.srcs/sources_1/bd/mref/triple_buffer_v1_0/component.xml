@@ -9,7 +9,7 @@
       <spirit:name>s00_axis</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -65,7 +65,7 @@
       <spirit:name>s00_axis_aresetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -87,7 +87,7 @@
       <spirit:name>s00_axis_aclk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

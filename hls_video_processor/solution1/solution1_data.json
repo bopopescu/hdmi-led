@@ -141,7 +141,7 @@
     },
     "stream_in": {
       "type": "axi4stream",
-      "mode": "slave",
+      "mode": "politician",
       "port_prefix": "stream_in",
       "has_tready": "1",
       "ctype": {
@@ -188,7 +188,7 @@
     },
     "stream_out": {
       "type": "axi4stream",
-      "mode": "master",
+      "mode": "oligarch",
       "port_prefix": "stream_out",
       "has_tready": "1",
       "ctype": {

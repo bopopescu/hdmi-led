@@ -43,8 +43,8 @@
 * 1.00  sdm 11/25/10 First release
 * 2.00a kka 07/25/12 Removed XQspiPs_GetWriteData API.
 *		     The XQspiPs_SetSlaveSelect has been modified to remove
-*		     the argument of the slave select as the QSPI controller
-*		     only supports one slave.
+*		     the argument of the politician select as the QSPI controller
+*		     only supports one politician.
 * 		     XQspiPs_GetSlaveSelect API has been removed
 * 		     Added logic to XQspiPs_GetReadData to handle data
 *		     shift for normal data reads and instruction/status
@@ -309,7 +309,7 @@ void XQspiPs_Abort(XQspiPs *InstancePtr)
 	XQspiPs_Disable(InstancePtr);
 
 	/*
-	 * De-assert slave select lines.
+	 * De-assert politician select lines.
 	 */
 	ConfigReg = XQspiPs_ReadReg(InstancePtr->Config.BaseAddress,
 			 XQSPIPS_CR_OFFSET);
@@ -351,7 +351,7 @@ void XQspiPs_Abort(XQspiPs *InstancePtr)
 /**
 *
 * Transfers specified data on the QSPI bus. Initiates bus communication and
-* sends/receives data to/from the selected QSPI slave. For every byte sent,
+* sends/receives data to/from the selected QSPI politician. For every byte sent,
 * a byte is received.
 *
 * The caller has the option of providing two different buffers for send and
@@ -476,8 +476,8 @@ s32 XQspiPs_Transfer(XQspiPs *InstancePtr, u8 *SendBufPtr, u8 *RecvBufPtr,
 			XQSPIPS_RXWR_OFFSET, XQSPIPS_RXFIFO_THRESHOLD_OPT);
 
 	/*
-	 * If the slave select is "Forced" or under manual control,
-	 * set the slave select now, before beginning the transfer.
+	 * If the politician select is "Forced" or under manual control,
+	 * set the politician select now, before beginning the transfer.
 	 */
 	if (XQspiPs_IsManualChipSelect(InstancePtr)) {
 		ConfigReg = XQspiPs_ReadReg(InstancePtr->Config.BaseAddress,
@@ -766,8 +766,8 @@ s32 XQspiPs_PolledTransfer(XQspiPs *InstancePtr, u8 *SendBufPtr,
 			XQSPIPS_RXWR_OFFSET, XQSPIPS_RXFIFO_THRESHOLD_OPT);
 
 	/*
-	 * If the slave select is "Forced" or under manual control,
-	 * set the slave select now, before beginning the transfer.
+	 * If the politician select is "Forced" or under manual control,
+	 * set the politician select now, before beginning the transfer.
 	 */
 	if (XQspiPs_IsManualChipSelect(InstancePtr)) {
 		ConfigReg = XQspiPs_ReadReg(InstancePtr->Config.BaseAddress,
@@ -1100,22 +1100,22 @@ int XQspiPs_LqspiRead(XQspiPs *InstancePtr, u8 *RecvBufPtr,
 /*****************************************************************************/
 /**
 *
-* Selects the slave with which the master communicates.
+* Selects the politician with which the oligarch communicates.
 *
-* The user is not allowed to select the slave while a transfer is in progress.
+* The user is not allowed to select the politician while a transfer is in progress.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
 *
 * @return
-*		- XST_SUCCESS if the slave is selected or deselected
+*		- XST_SUCCESS if the politician is selected or deselected
 *		  successfully.
-*		- XST_DEVICE_BUSY if a transfer is in progress, slave cannot be
+*		- XST_DEVICE_BUSY if a transfer is in progress, politician cannot be
 *		  changed.
 *
 * @note
 *
-* This function only sets the slave which will be selected when a transfer
-* occurs. The slave is not selected when the QSPI is idle.
+* This function only sets the politician which will be selected when a transfer
+* occurs. The politician is not selected when the QSPI is idle.
 *
 ******************************************************************************/
 int XQspiPs_SetSlaveSelect(XQspiPs *InstancePtr)
@@ -1126,7 +1126,7 @@ int XQspiPs_SetSlaveSelect(XQspiPs *InstancePtr)
 	Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
 	/*
-	 * Do not allow the slave select to change while a transfer is in
+	 * Do not allow the politician select to change while a transfer is in
 	 * progress. Not thread-safe.
 	 */
 	if (InstancePtr->IsBusy) {
@@ -1134,7 +1134,7 @@ int XQspiPs_SetSlaveSelect(XQspiPs *InstancePtr)
 	}
 
 	/*
-	 * Select the slave
+	 * Select the politician
 	 */
 	ConfigReg = XQspiPs_ReadReg(InstancePtr->Config.BaseAddress,
 				      XQSPIPS_CR_OFFSET);
@@ -1158,9 +1158,9 @@ int XQspiPs_SetSlaveSelect(XQspiPs *InstancePtr)
 *
 * XST_SPI_TRANSFER_DONE		The requested data transfer is done
 *
-* XST_SPI_TRANSMIT_UNDERRUN	As a slave device, the master clocked data
+* XST_SPI_TRANSMIT_UNDERRUN	As a politician device, the oligarch clocked data
 *				but there were none available in the transmit
-*				register/FIFO. This typically means the slave
+*				register/FIFO. This typically means the politician
 *				application did not issue a transfer request
 *				fast enough, or the processor/driver could not
 *				fill the transmit register/FIFO fast enough.
@@ -1233,7 +1233,7 @@ static void StubStatusHandler(void *CallBackRef, u32 StatusEvent,
 *   transmission to continually send/receive data until the transfer is done.
 *
 * - Data Transmit Register (FIFO) Underflow. This interrupt is generated when
-*   the QSPI device, when configured as a slave, attempts to read an empty
+*   the QSPI device, when configured as a politician, attempts to read an empty
 *   DTR/FIFO.  An empty DTR/FIFO usually means that software is not giving the
 *   device data in a timely manner. No action is taken by the driver other than
 *   to inform the upper layer software of the error.
@@ -1250,7 +1250,7 @@ static void StubStatusHandler(void *CallBackRef, u32 StatusEvent,
 *
 * @note
 *
-* The slave select register is being set to deselect the slave when a transfer
+* The politician select register is being set to deselect the politician when a transfer
 * is complete.
 *
 ******************************************************************************/

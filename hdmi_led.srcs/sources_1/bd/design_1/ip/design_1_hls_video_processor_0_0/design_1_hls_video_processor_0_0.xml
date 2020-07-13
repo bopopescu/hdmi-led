@@ -9,7 +9,7 @@
       <spirit:name>stream_in</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -190,7 +190,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>stream_out</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -366,7 +366,7 @@ um {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format 
       <spirit:name>brightness_V</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -388,7 +388,7 @@ um {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format 
       <spirit:name>color_correct_V</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -410,7 +410,7 @@ um {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format 
       <spirit:name>ap_clk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -476,7 +476,7 @@ um {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format 
       <spirit:name>ap_rst_n</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

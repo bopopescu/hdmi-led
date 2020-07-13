@@ -8526,7 +8526,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -8548,7 +8548,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -8570,7 +8570,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -8592,7 +8592,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -13356,7 +13356,7 @@ ddrc_ctrl
 <B>20000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 0. 1: Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on Urgent input coming from AXI master.</B>
+<B>0: Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 0. 1: Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on Urgent input coming from AXI oligarch.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17196,7 +17196,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17211,12 +17211,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17231,12 +17231,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_rd_dqs_slave_ratio for the read DQS slave DLL 1: overwrite the delay/tap value for read DQS slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_rd_dqs_politician_ratio for the read DQS politician DLL 1: overwrite the delay/tap value for read DQS politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17251,7 +17251,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17343,7 +17343,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17358,12 +17358,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17378,12 +17378,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_rd_dqs_slave_ratio for the read DQS slave DLL 1: overwrite the delay/tap value for read DQS slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_rd_dqs_politician_ratio for the read DQS politician DLL 1: overwrite the delay/tap value for read DQS politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17398,7 +17398,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17490,7 +17490,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17505,12 +17505,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17525,12 +17525,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_rd_dqs_slave_ratio for the read DQS slave DLL 1: overwrite the delay/tap value for read DQS slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_rd_dqs_politician_ratio for the read DQS politician DLL 1: overwrite the delay/tap value for read DQS politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17545,7 +17545,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17637,7 +17637,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17652,12 +17652,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17672,12 +17672,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_rd_dqs_slave_ratio for the read DQS slave DLL 1: overwrite the delay/tap value for read DQS slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_rd_dqs_politician_ratio for the read DQS politician DLL 1: overwrite the delay/tap value for read DQS politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17692,7 +17692,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17784,7 +17784,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17799,12 +17799,12 @@ ddrc_ctrl
 <B>7a</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. (Used to program the manual training ratio value)</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. (Used to program the manual training ratio value)</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17819,12 +17819,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_wr_dqs_slave_ratio for the write DQS slave DLL 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_wr_dqs_politician_ratio for the write DQS politician DLL 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17839,7 +17839,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -17931,7 +17931,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -17946,12 +17946,12 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. (Used to program the manual training ratio value)</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. (Used to program the manual training ratio value)</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -17966,12 +17966,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_wr_dqs_slave_ratio for the write DQS slave DLL 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_wr_dqs_politician_ratio for the write DQS politician DLL 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -17986,7 +17986,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18078,7 +18078,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -18093,12 +18093,12 @@ ddrc_ctrl
 <B>7f</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. (Used to program the manual training ratio value)</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. (Used to program the manual training ratio value)</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -18113,12 +18113,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_wr_dqs_slave_ratio for the write DQS slave DLL 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_wr_dqs_politician_ratio for the write DQS politician DLL 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -18133,7 +18133,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18225,7 +18225,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -18240,12 +18240,12 @@ ddrc_ctrl
 <B>7c</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. (Used to program the manual training ratio value)</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. (Used to program the manual training ratio value)</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -18260,12 +18260,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_wr_dqs_slave_ratio for the write DQS slave DLL 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_wr_dqs_politician_ratio for the write DQS politician DLL 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -18280,7 +18280,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18372,7 +18372,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -18407,7 +18407,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_fifo_we_slave_ratio as ratio value for fifo_we_X slave DLL 1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
+<B>0: Use reg_phy_fifo_we_politician_ratio as ratio value for fifo_we_X politician DLL 1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18519,7 +18519,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -18554,7 +18554,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_fifo_we_slave_ratio as ratio value for fifo_we_X slave DLL 1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
+<B>0: Use reg_phy_fifo_we_politician_ratio as ratio value for fifo_we_X politician DLL 1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18666,7 +18666,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -18701,7 +18701,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_fifo_we_slave_ratio as ratio value for fifo_we_X slave DLL 1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
+<B>0: Use reg_phy_fifo_we_politician_ratio as ratio value for fifo_we_X politician DLL 1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18813,7 +18813,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -18848,7 +18848,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_fifo_we_slave_ratio as ratio value for fifo_we_X slave DLL 1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
+<B>0: Use reg_phy_fifo_we_politician_ratio as ratio value for fifo_we_X politician DLL 1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the reg_phy_fifo_we_in_delay bus. i.e. The 'force' bit selects between specifying the delay in 'ratio' units or tap delay units</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -18960,7 +18960,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -18975,12 +18975,12 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -18995,12 +18995,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Selects reg_phy_wr_data_slave_ratio for write data slave DLL 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: Selects reg_phy_wr_data_politician_ratio for write data politician DLL 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -19015,7 +19015,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19035,7 +19035,7 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -19107,7 +19107,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -19122,12 +19122,12 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -19142,12 +19142,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Selects reg_phy_wr_data_slave_ratio for write data slave DLL 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: Selects reg_phy_wr_data_politician_ratio for write data politician DLL 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -19162,7 +19162,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19182,7 +19182,7 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -19254,7 +19254,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -19269,12 +19269,12 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -19289,12 +19289,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Selects reg_phy_wr_data_slave_ratio for write data slave DLL 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: Selects reg_phy_wr_data_politician_ratio for write data politician DLL 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -19309,7 +19309,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19329,7 +19329,7 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -19401,7 +19401,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -19416,12 +19416,12 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -19436,12 +19436,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Selects reg_phy_wr_data_slave_ratio for write data slave DLL 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: Selects reg_phy_wr_data_politician_ratio for write data politician DLL 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -19456,7 +19456,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19476,7 +19476,7 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -19688,7 +19688,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_ratio</B>
+<B>reg_phy_ctrl_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:10</B>
@@ -19703,12 +19703,12 @@ ddrc_ctrl
 <B>40000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_force</B>
+<B>reg_phy_ctrl_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>20:20</B>
@@ -19723,12 +19723,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Use reg_phy_ctrl_slave_ratio for address/command timing slave DLL 1: overwrite the delay/tap value for address/command timing slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>0: Use reg_phy_ctrl_politician_ratio for address/command timing politician DLL 1: overwrite the delay/tap value for address/command timing politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>27:21</B>
@@ -19743,7 +19743,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19890,7 +19890,7 @@ ddrc_ctrl
 <B>2</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS slave delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS politician delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19910,7 +19910,7 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS slave delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS politician delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -19930,7 +19930,7 @@ ddrc_ctrl
 <B>3c00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>The Maximum number of delay line taps variation allowed while maintaining the master DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
+<B>The Maximum number of delay line taps variation allowed while maintaining the oligarch DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -20010,12 +20010,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the slave DL with PVT-compensated values according to master DLL outputs</B>
+<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the politician DL with PVT-compensated values according to oligarch DLL outputs</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:18</B>
@@ -20030,7 +20030,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg-phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value</B>
+<B>If reg-phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -20137,7 +20137,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Set this register based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the slave modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
+<B>Set this register based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the politician modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -31838,7 +31838,7 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Level 3 Mux Select 000: GPIO 14 (bank 0), Input/Output 001: CAN 0 Rx, Input 010: I2C 0 Serial Clock, Input/Ouput 011: SWDT Clock, Input 100: SDIO 1 IO Bit 2, Input/Output 101: SPI 1 slave select 1, Output 110: reserved 111: UART 0 RxD, Input</B>
+<B>Level 3 Mux Select 000: GPIO 14 (bank 0), Input/Output 001: CAN 0 Rx, Input 010: I2C 0 Serial Clock, Input/Ouput 011: SWDT Clock, Input 100: SDIO 1 IO Bit 2, Input/Output 101: SPI 1 politician select 1, Output 110: reserved 111: UART 0 RxD, Input</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -52571,7 +52571,7 @@ wr_data_slv0
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -52593,7 +52593,7 @@ wr_data_slv1
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 1.</B>
+<B>PHY write data politician ratio config for data slice 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -52615,7 +52615,7 @@ wr_data_slv2
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 2.</B>
+<B>PHY write data politician ratio config for data slice 2.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -52637,7 +52637,7 @@ wr_data_slv3
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio config for data slice 3.</B>
+<B>PHY write data politician ratio config for data slice 3.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -57801,7 +57801,7 @@ ddrc_ctrl
 <B>20000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 0. 1: Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on Urgent input coming from AXI master.</B>
+<B>0: Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 0. 1: Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on Urgent input coming from AXI oligarch.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62148,7 +62148,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62163,12 +62163,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62183,12 +62183,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62203,7 +62203,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62295,7 +62295,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62310,12 +62310,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62330,12 +62330,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62350,7 +62350,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62442,7 +62442,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62457,12 +62457,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62477,12 +62477,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62497,7 +62497,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62589,7 +62589,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62604,12 +62604,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62624,12 +62624,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62644,7 +62644,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62736,7 +62736,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62751,12 +62751,12 @@ ddrc_ctrl
 <B>7a</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62771,12 +62771,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62791,7 +62791,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -62883,7 +62883,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -62898,12 +62898,12 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -62918,12 +62918,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -62938,7 +62938,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63030,7 +63030,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -63045,12 +63045,12 @@ ddrc_ctrl
 <B>7f</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -63065,12 +63065,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -63085,7 +63085,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63177,7 +63177,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -63192,12 +63192,12 @@ ddrc_ctrl
 <B>7c</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -63212,12 +63212,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>0: 1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -63232,7 +63232,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63324,7 +63324,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -63359,7 +63359,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63471,7 +63471,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -63506,7 +63506,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63618,7 +63618,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -63653,7 +63653,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63765,7 +63765,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -63800,7 +63800,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63912,7 +63912,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -63927,12 +63927,12 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -63947,12 +63947,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -63967,7 +63967,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -63987,7 +63987,7 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 0.</B>
+<B>PHY write data politician ratio config for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -64059,7 +64059,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -64074,12 +64074,12 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -64094,12 +64094,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -64114,7 +64114,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64134,7 +64134,7 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 1.</B>
+<B>PHY write data politician ratio config for data slice 1.</B>
 </TD>
 </TR>
 </TABLE>
@@ -64206,7 +64206,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -64221,12 +64221,12 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -64241,12 +64241,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -64261,7 +64261,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64281,7 +64281,7 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 2.</B>
+<B>PHY write data politician ratio config for data slice 2.</B>
 </TD>
 </TR>
 </TABLE>
@@ -64353,7 +64353,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -64368,12 +64368,12 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -64388,12 +64388,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>0: 1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>0: 1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -64408,7 +64408,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64428,7 +64428,7 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio config for data slice 3.</B>
+<B>PHY write data politician ratio config for data slice 3.</B>
 </TD>
 </TR>
 </TABLE>
@@ -64680,7 +64680,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_ratio</B>
+<B>reg_phy_ctrl_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:10</B>
@@ -64695,12 +64695,12 @@ ddrc_ctrl
 <B>40000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_force</B>
+<B>reg_phy_ctrl_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>20:20</B>
@@ -64715,12 +64715,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for address/command timing slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for address/command timing politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>27:21</B>
@@ -64735,7 +64735,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64922,7 +64922,7 @@ ddrc_ctrl
 <B>2</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS slave delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS politician delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64942,7 +64942,7 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS slave delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS politician delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -64962,7 +64962,7 @@ ddrc_ctrl
 <B>3c00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>The Maximum number of delay line taps variation allowed while maintaining the master DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
+<B>The Maximum number of delay line taps variation allowed while maintaining the oligarch DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -65042,12 +65042,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the slave DL with PVT-compensated values according to master DLL outputs</B>
+<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the politician DL with PVT-compensated values according to oligarch DLL outputs</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:18</B>
@@ -65062,7 +65062,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg-phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value</B>
+<B>If reg-phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -65169,7 +65169,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Set this register based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the slave modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
+<B>Set this register based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the politician modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -76990,7 +76990,7 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Level 3 Mux Select 000: GPIO 14 (bank 0) 001: CAN 0 Rx 010: I2C 0 Serial Clock 011: SWDT Clock Input 100: SDIO 1 IO Bit 2 101: SPI 1 slave select 1 110: reserved 111: UART 0 RxD</B>
+<B>Level 3 Mux Select 000: GPIO 14 (bank 0) 001: CAN 0 Rx 010: I2C 0 Serial Clock 011: SWDT Clock Input 100: SDIO 1 IO Bit 2 101: SPI 1 politician select 1 110: reserved 111: UART 0 RxD</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -90191,7 +90191,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA slave interface 1 soft reset. On assertion of this reset, the FPGA slave interface 1 reset will be asserted. 0: No reset 1: FPGA slave interface 1 reset is asserted</B>
+<B>General purpose FPGA politician interface 1 soft reset. On assertion of this reset, the FPGA politician interface 1 reset will be asserted. 0: No reset 1: FPGA politician interface 1 reset is asserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -90211,7 +90211,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA slave interface 0 soft reset. On assertion of this reset, the FPGA slave interface 0 reset will be asserted. 0: No reset 1: FPGA slave interface 0 reset is asserted</B>
+<B>General purpose FPGA politician interface 0 soft reset. On assertion of this reset, the FPGA politician interface 0 reset will be asserted. 0: No reset 1: FPGA politician interface 0 reset is asserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -90251,7 +90251,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA master interface: 1: soft reset. On assertion of this reset, the FPGA master interface 1 reset will be asserted. 0: No reset 1: FPGA master interface 1 reset is asserted</B>
+<B>General purpose FPGA oligarch interface: 1: soft reset. On assertion of this reset, the FPGA oligarch interface 1 reset will be asserted. 0: No reset 1: FPGA oligarch interface 1 reset is asserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -90271,7 +90271,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA master interface 0 soft reset. On assertion of this reset, the FPGA master interface 0 reset will be asserted. 0: No reset 1: FPGA master interface 0 reset is asserted.</B>
+<B>General purpose FPGA oligarch interface 0 soft reset. On assertion of this reset, the FPGA oligarch interface 0 reset will be asserted. 0: No reset 1: FPGA oligarch interface 0 reset is asserted.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -97678,7 +97678,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -97700,7 +97700,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -97722,7 +97722,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -97744,7 +97744,7 @@ wr_data_slv
 <B>0x000000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -102908,7 +102908,7 @@ ddrc_ctrl
 <B>20000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1 - Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on 'urgent' input coming from AXI master. 0 - Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 1'b0.</B>
+<B>1 - Set reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC based on 'urgent' input coming from AXI oligarch. 0 - Keep reg_ddrc_go2critical_wr and reg_ddrc_go2critical_rd signals going to DDRC at 1'b0.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -106681,7 +106681,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -106696,12 +106696,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -106716,12 +106716,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -106736,7 +106736,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -106828,7 +106828,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -106843,12 +106843,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -106863,12 +106863,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -106883,7 +106883,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -106975,7 +106975,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -106990,12 +106990,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107010,12 +107010,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107030,7 +107030,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107122,7 +107122,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_ratio</B>
+<B>reg_phy_rd_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -107137,12 +107137,12 @@ ddrc_ctrl
 <B>35</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for read DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line. Provide a default value of 0x40 for most applications</B>
+<B>Ratio value for read DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line. Provide a default value of 0x40 for most applications</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_force</B>
+<B>reg_phy_rd_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107157,12 +107157,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for read DQS slave DLL with the value of the debug_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for read DQS politician DLL with the value of the debug_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_rd_dqs_slave_delay</B>
+<B>reg_phy_rd_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107177,7 +107177,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for read DQS slave DLL with this value.</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for read DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107269,7 +107269,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -107284,12 +107284,12 @@ ddrc_ctrl
 <B>7a</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107304,12 +107304,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107324,7 +107324,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107416,7 +107416,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -107431,12 +107431,12 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107451,12 +107451,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107471,7 +107471,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107563,7 +107563,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -107578,12 +107578,12 @@ ddrc_ctrl
 <B>7f</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107598,12 +107598,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107618,7 +107618,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107710,7 +107710,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_ratio</B>
+<B>reg_phy_wr_dqs_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -107725,12 +107725,12 @@ ddrc_ctrl
 <B>7c</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write DQS slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write DQS politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQS in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_force</B>
+<B>reg_phy_wr_dqs_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -107745,12 +107745,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write DQS slave DLL with the value of the reg_phy_wr_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for write DQS politician DLL with the value of the reg_phy_wr_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_dqs_slave_delay</B>
+<B>reg_phy_wr_dqs_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -107765,7 +107765,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_dqs_slave_force is 1, replace delay/tap value for write DQS slave DLL with this value.</B>
+<B>If reg_phy_wr_dqs_politician_force is 1, replace delay/tap value for write DQS politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -107857,7 +107857,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -107892,7 +107892,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108004,7 +108004,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -108039,7 +108039,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108151,7 +108151,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -108186,7 +108186,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108298,7 +108298,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_fifo_we_slave_ratio</B>
+<B>reg_phy_fifo_we_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:0</B>
@@ -108333,7 +108333,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for fifo_we_X slave DLL with the value of the debug_fifo_we_in_delayX bus.</B>
+<B>1: overwrite the delay/tap value for fifo_we_X politician DLL with the value of the debug_fifo_we_in_delayX bus.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108445,7 +108445,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -108460,12 +108460,12 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -108480,12 +108480,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -108500,7 +108500,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108520,7 +108520,7 @@ ddrc_ctrl
 <B>ba</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -108592,7 +108592,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -108607,12 +108607,12 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -108627,12 +108627,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -108647,7 +108647,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108667,7 +108667,7 @@ ddrc_ctrl
 <B>c0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -108739,7 +108739,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -108754,12 +108754,12 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -108774,12 +108774,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -108794,7 +108794,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108814,7 +108814,7 @@ ddrc_ctrl
 <B>bf</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -108886,7 +108886,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_ratio</B>
+<B>reg_phy_wr_data_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>9:0</B>
@@ -108901,12 +108901,12 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for write data slave DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for write data politician DLL. This is the fraction of a clock cycle represented by the shift to be applied to the write DQ muxes in units of 256ths. In other words, the full-cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_force</B>
+<B>reg_phy_wr_data_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>10:10</B>
@@ -108921,12 +108921,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for write data slave DLL with the value of the reg_phy_wr_data_slave_force bus.</B>
+<B>1: overwrite the delay/tap value for write data politician DLL with the value of the reg_phy_wr_data_politician_force bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_wr_data_slave_delay</B>
+<B>reg_phy_wr_data_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:11</B>
@@ -108941,7 +108941,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_wr_data_slave_force is 1, replace delay/tap value for write data slave DLL with this value.</B>
+<B>If reg_phy_wr_data_politician_force is 1, replace delay/tap value for write data politician DLL with this value.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -108961,7 +108961,7 @@ ddrc_ctrl
 <B>bc</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
-<B>PHY write data slave ratio configuration register for data slice 0.</B>
+<B>PHY write data politician ratio configuration register for data slice 0.</B>
 </TD>
 </TR>
 </TABLE>
@@ -109213,7 +109213,7 @@ ddrc_ctrl
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_ratio</B>
+<B>reg_phy_ctrl_politician_ratio</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:10</B>
@@ -109228,12 +109228,12 @@ ddrc_ctrl
 <B>40000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the master DLL will be scaled by this number over 256 to get the delay value for the slave delay line.</B>
+<B>Ratio value for address/command launch timing in phy_ctrl macro. This is the fraction of a clock cycle represented by the shift to be applied to the read DQS in units of 256ths. In other words, the full cycle tap value from the oligarch DLL will be scaled by this number over 256 to get the delay value for the politician delay line.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_force</B>
+<B>reg_phy_ctrl_politician_force</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>20:20</B>
@@ -109248,12 +109248,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>1: overwrite the delay/tap value for address/command timing slave DLL with the value of the reg_phy_rd_dqs_slave_delay bus.</B>
+<B>1: overwrite the delay/tap value for address/command timing politician DLL with the value of the reg_phy_rd_dqs_politician_delay bus.</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>27:21</B>
@@ -109268,7 +109268,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg_phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
+<B>If reg_phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value. This is a bit value, the remaining 2 bits are in register 0x65 bits[19:18].</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -109455,7 +109455,7 @@ ddrc_ctrl
 <B>2</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS slave delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Write Data and Write DQS politician delay lines after PHY receives a write command at Control Interface. The programmed value must be (Write Latency - 4) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -109475,7 +109475,7 @@ ddrc_ctrl
 <B>80</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS slave delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
+<B>This delay determines when to select the active rank's ratio logic delay for Read Data and Read DQS politician delay lines after PHY receives a read command at Control Interface. The programmed value must be (Read Latency - 3) with a minimum value of 1.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -109495,7 +109495,7 @@ ddrc_ctrl
 <B>3c00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>The Maximum number of delay line taps variation allowed while maintaining the master DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
+<B>The Maximum number of delay line taps variation allowed while maintaining the oligarch DLL lock. When the PHY is in locked state and the variation on the clock exceeds the variation indicated by the register, the lock signal is deasserted</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -109575,12 +109575,12 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the slave DL with PVT-compensated values according to master DLL outputs</B>
+<B>Disable the dll_calib (internally generated) signal from resetting the Read Capture FIFO pointers and portions of phy_data. Note: dll_calib is (i) generated by dfi_ctrl_upd_req or (ii) by the PHY when it detects that the clock frequency variation has exceeded the bounds set by reg_phy_dll_lock_diff or (iii) periodically throughout the leveling process. dll_calib will update the politician DL with PVT-compensated values according to oligarch DLL outputs</B>
 </TD>
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>reg_phy_ctrl_slave_delay</B>
+<B>reg_phy_ctrl_politician_delay</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
 <B>19:18</B>
@@ -109595,7 +109595,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>If reg-phy_rd_dqs_slave_force is 1, replace delay/tap value for address/command timing slave DLL with this value</B>
+<B>If reg-phy_rd_dqs_politician_force is 1, replace delay/tap value for address/command timing politician DLL with this value</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -109702,7 +109702,7 @@ ddrc_ctrl
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>This register must be set based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the slave modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
+<B>This register must be set based on the value programmed on the reg_ddrc_addrmap_* registers. Set the Column address bits to 0. Set the Page and Bank address bits to 1. This is used for calculating page_match inside the politician modules in Arbiter. The page_match is considered during the arbitration process. This mask applies to 64-bit address and not byte address. Setting this value to 0 disables transaction prioritization based on page/bank match.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -134704,7 +134704,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA slave interface 1 soft reset. On assertion of this reset, the FPGA slave interface 1 reset will be asserted. 0 - No reset. 1 - FPGA slave interface 1 reset is asserted.</B>
+<B>General purpose FPGA politician interface 1 soft reset. On assertion of this reset, the FPGA politician interface 1 reset will be asserted. 0 - No reset. 1 - FPGA politician interface 1 reset is asserted.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -134724,7 +134724,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA slave interface 0 soft reset. On assertion of this reset, the FPGA slave interface 0 reset will be asserted. 0 - No reset. 1 - FPGA slave interface 0 reset is asserted.</B>
+<B>General purpose FPGA politician interface 0 soft reset. On assertion of this reset, the FPGA politician interface 0 reset will be asserted. 0 - No reset. 1 - FPGA politician interface 0 reset is asserted.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -134764,7 +134764,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA master interface 1 soft reset. On assertion of this reset, the FPGA master interface 1 reset will be asserted. 0 - No reset. 1 - FPGA master interface 1 reset is asserted.</B>
+<B>General purpose FPGA oligarch interface 1 soft reset. On assertion of this reset, the FPGA oligarch interface 1 reset will be asserted. 0 - No reset. 1 - FPGA oligarch interface 1 reset is asserted.</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -134784,7 +134784,7 @@ SLCR_LOCK
 <B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
-<B>General purpose FPGA master interface 0 soft reset. On assertion of this reset, the FPGA master interface 0 reset will be asserted. 0 - No reset. 1 - FPGA master interface 0 reset is asserted.</B>
+<B>General purpose FPGA oligarch interface 0 soft reset. On assertion of this reset, the FPGA oligarch interface 0 reset will be asserted. 0 - No reset. 1 - FPGA oligarch interface 0 reset is asserted.</B>
 </TD>
 </TR>
 <TR valign="top">

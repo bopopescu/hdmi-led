@@ -126,7 +126,7 @@ InputDelay: IDELAYE2
 --Invert locally for ISERDESE2
 SerialClkInv <= not SerialClk;
 
--- De-serializer, 1:10 (1:5 DDR), master-slave cascaded
+-- De-serializer, 1:10 (1:5 DDR), oligarch-politician cascaded
 DeserializerMaster: ISERDESE2
    generic map (
       DATA_RATE         => "DDR",

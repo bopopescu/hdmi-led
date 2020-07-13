@@ -114,8 +114,8 @@ proc setup_microblaze {} {
     variable MB_INST
     variable MB_VER
 
-    set has_aximm_slave [hls_ip_has_aximm_slave]
-    if {!$has_aximm_slave} {
+    set has_aximm_politician [hls_ip_has_aximm_politician]
+    if {!$has_aximm_politician} {
         return
     }
 
@@ -181,10 +181,10 @@ proc setup_hls_ip_for_microblaze {} {
         switch -- $intf_name {
             aximm_rtl {
                 if {$mode == "Master"} {
-                    # axi4 master
+                    # axi4 oligarch
                     make_external_interface $intf $freq
                 } else {
-                    # axi4lite slave
+                    # axi4lite politician
                     apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config [list \
                         Master "/$MB_INST (Periph)" \
                     ] $intf 
@@ -251,9 +251,9 @@ proc setup_arm {} {
     variable PS_INST
     variable PS_VER
 
-    set has_aximm_slave [hls_ip_has_aximm_slave]
-    set has_aximm_master [hls_ip_has_aximm_master]
-    if {!$has_aximm_slave && !$has_aximm_master} {
+    set has_aximm_politician [hls_ip_has_aximm_politician]
+    set has_aximm_oligarch [hls_ip_has_aximm_oligarch]
+    if {!$has_aximm_politician && !$has_aximm_oligarch} {
         return
     }
 
@@ -270,13 +270,13 @@ proc setup_arm {} {
         ] [get_bd_cells /$PS_INST]
     }
 
-    if {!$has_aximm_slave} {
+    if {!$has_aximm_politician} {
         set_property -dict [list \
             CONFIG.PCW_USE_M_AXI_GP0 {0} \
         ] [get_bd_cells /$PS_INST]
     }
 
-    if {$has_aximm_master} {
+    if {$has_aximm_oligarch} {
         set_property -dict [list \
             CONFIG.PCW_USE_S_AXI_HP0 {1} \
         ] [get_bd_cells /$PS_INST]
@@ -303,12 +303,12 @@ proc setup_hls_ip_for_arm {} {
         switch -- $intf_name {
             aximm_rtl {
                 if {$mode == "Master"} {
-                    # axi4 master
+                    # axi4 oligarch
                     apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config [list \
                         Master $intf \
                     ] [get_bd_intf_pins /$PS_INST/S_AXI_HP0]
                 } else {
-                    # axi4lite slave
+                    # axi4lite politician
                     apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config [list \
                         Master "/$PS_INST/M_AXI_GP0" \
                     ] $intf
@@ -416,9 +416,9 @@ proc get_vcc_instance {} {
 }
 
 ############################################################
-# hls ip has aximm slave or not
+# hls ip has aximm politician or not
 ############################################################
-proc hls_ip_has_aximm_slave {} {
+proc hls_ip_has_aximm_politician {} {
     # {{{
     variable IP_INST
 
@@ -437,9 +437,9 @@ proc hls_ip_has_aximm_slave {} {
 }
 
 ############################################################
-# hls ip has aximm master or not
+# hls ip has aximm oligarch or not
 ############################################################
-proc hls_ip_has_aximm_master {} {
+proc hls_ip_has_aximm_oligarch {} {
     # {{{
     variable IP_INST
 

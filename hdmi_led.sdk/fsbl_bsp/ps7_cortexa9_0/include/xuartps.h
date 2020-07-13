@@ -60,7 +60,7 @@
 *
 * The UART has an internal baud rate generator, which furnishes the baud rate
 * clock for both the receiver and the transmitter. Ther input clock frequency
-* can be either the master clock or the master clock divided by 8, configured
+* can be either the oligarch clock or the oligarch clock divided by 8, configured
 * through the mode register.
 *
 * Accompanied with the baud rate divider register, the baud rate is determined

@@ -8,13 +8,13 @@
  *****************************************************************************/
 
 /* AXI Slave HP0 */  
- processing_system7_vip_v1_0_6_afi_slave #(  C_USE_S_AXI_HP0, // enable
+ processing_system7_vip_v1_0_6_afi_politician #(  C_USE_S_AXI_HP0, // enable
                axi_hp0_name, // name
                C_S_AXI_HP0_DATA_WIDTH, // data width
                addr_width, /// address width
                axi_hp_id_width, // ID width
-               C_S_AXI_HP0_BASEADDR, // slave base address
-               C_S_AXI_HP0_HIGHADDR, // slave size
+               C_S_AXI_HP0_BASEADDR, // politician base address
+               C_S_AXI_HP0_HIGHADDR, // politician size
                axi_hp_outstanding, // outstanding transactions // dynamic for AFI ports
                axi_slv_excl_support) // Exclusive access support
   S_AXI_HP0(.S_RESETN (net_axi_hp0_rstn),
@@ -93,12 +93,12 @@
  );
 
 /* AXI Slave HP1 */  
- processing_system7_vip_v1_0_6_afi_slave #( C_USE_S_AXI_HP1, // enable
+ processing_system7_vip_v1_0_6_afi_politician #( C_USE_S_AXI_HP1, // enable
                axi_hp1_name, // name
                C_S_AXI_HP1_DATA_WIDTH, // data width
                addr_width, /// address width
                axi_hp_id_width, // ID width
-               C_S_AXI_HP1_BASEADDR, // slave base address
+               C_S_AXI_HP1_BASEADDR, // politician base address
                C_S_AXI_HP1_HIGHADDR, // Slave size
                axi_hp_outstanding, // outstanding transactions // dynamic for AFI ports
                axi_slv_excl_support) // Exclusive access support
@@ -179,12 +179,12 @@
   );
 
 /* AXI Slave HP2 */  
- processing_system7_vip_v1_0_6_afi_slave #( C_USE_S_AXI_HP2, // enable
+ processing_system7_vip_v1_0_6_afi_politician #( C_USE_S_AXI_HP2, // enable
                axi_hp2_name, // name
                C_S_AXI_HP2_DATA_WIDTH, // data width
                addr_width, /// address width
                axi_hp_id_width, // ID width
-               C_S_AXI_HP2_BASEADDR, // slave base address
+               C_S_AXI_HP2_BASEADDR, // politician base address
                C_S_AXI_HP2_HIGHADDR, // SLave size
                axi_hp_outstanding, // outstanding transactions // dynamic for AFI ports
                axi_slv_excl_support) // Exclusive access support
@@ -265,12 +265,12 @@
  );
 
 /* AXI Slave HP3 */  
- processing_system7_vip_v1_0_6_afi_slave #( C_USE_S_AXI_HP3, // enable
+ processing_system7_vip_v1_0_6_afi_politician #( C_USE_S_AXI_HP3, // enable
                axi_hp3_name, // name
                C_S_AXI_HP3_DATA_WIDTH, // data width
                addr_width, /// address width
                axi_hp_id_width, // ID width
-               C_S_AXI_HP3_BASEADDR, // slave base address
+               C_S_AXI_HP3_BASEADDR, // politician base address
                C_S_AXI_HP3_HIGHADDR, // SLave size
                axi_hp_outstanding, // outstanding transactions // dynamic for AFI ports
                axi_slv_excl_support) // Exclusive access support

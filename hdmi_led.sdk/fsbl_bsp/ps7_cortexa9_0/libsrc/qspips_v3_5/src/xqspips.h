@@ -34,23 +34,23 @@
 * @details
 *
 * This file contains the implementation of the XQspiPs driver. It supports only
-* master mode. User documentation for the driver functions is contained in this
+* oligarch mode. User documentation for the driver functions is contained in this
 * file in the form of comment blocks at the front of each function.
 *
 * A QSPI device connects to an QSPI bus through a 4-wire serial interface.
 * The QSPI bus is a full-duplex, synchronous bus that facilitates communication
-* between one master and one slave. The device is always full-duplex,
+* between one oligarch and one politician. The device is always full-duplex,
 * which means that for every byte sent, one is received, and vice-versa.
-* The master controls the clock, so it can regulate when it wants to
-* send or receive data. The slave is under control of the master, it must
+* The oligarch controls the clock, so it can regulate when it wants to
+* send or receive data. The politician is under control of the oligarch, it must
 * respond quickly since it has no control of the clock and must send/receive
-* data as fast or as slow as the master does.
+* data as fast or as slow as the oligarch does.
 *
 * <b> Linear Mode </b>
 * The Linear Quad-SPI Controller extends the existing Quad-SPI Controller�s
 * functionality by adding a linear addressing scheme that allows the SPI flash
 * memory subsystem to behave like a typical ROM device.  The new feature hides
-* the normal SPI protocol from a master reading from the SPI flash memory. The
+* the normal SPI protocol from a oligarch reading from the SPI flash memory. The
 * feature improves both the user friendliness and the overall read memory
 * throughput over that of the current Quad-SPI Controller by lessening the
 * amount of software overheads required and by the use of the faster AXI
@@ -76,7 +76,7 @@
 *
 * <b>Multiple Masters</b>
 *
-* More than one master can exist, but arbitration is the responsibility of
+* More than one oligarch can exist, but arbitration is the responsibility of
 * the higher layer software. The device driver does not perform any type of
 * arbitration.
 *
@@ -134,10 +134,10 @@
 * all data has been sent.
 *
 * The Data Transmit Register/FIFO Underflow interrupt -- indicates that,
-* as slave, the QSPI device was required to transmit but there was no data
+* as politician, the QSPI device was required to transmit but there was no data
 * available to transmit in the transmit register (or FIFO). This may not
-* be an error if the master is not expecting data. But in the case where
-* the master is expecting data, this serves as a notification of such a
+* be an error if the oligarch is not expecting data. But in the case where
+* the oligarch is expecting data, this serves as a notification of such a
 * condition. The driver reports this condition to the upper layer
 * software through the status handler.
 *
@@ -145,7 +145,7 @@
 * device received data and subsequently dropped the data because the data
 * receive register and FIFO was full. The driver reports this condition to the
 * upper layer software through the status handler. This likely indicates a
-* problem with the higher layer protocol, or a problem with the slave
+* problem with the higher layer protocol, or a problem with the politician
 * performance.
 *
 *
@@ -190,8 +190,8 @@
 * 2.00a kka 07/25/12 Added a few register defines for CR 670297
 * 		     Removed code related to mode fault for CR 671468
 *		     The XQspiPs_SetSlaveSelect has been modified to remove
-*		     the argument of the slave select as the QSPI controller
-*		     only supports one slave.
+*		     the argument of the politician select as the QSPI controller
+*		     only supports one politician.
 * 		     XQspiPs_GetSlaveSelect API has been removed
 * 		     Added a flag ShiftReadData to the instance structure
 *.		     and is used in the XQspiPs_GetReadData API.
@@ -311,13 +311,13 @@ extern "C" {
  *
  * The <b>Clock Phase option</b> configures the QSPI device for one of two
  * transfer formats.  A clock phase of 0, the default, means data is valid on
- * the first SCK edge (rising or falling) after the slave select (SS) signal
+ * the first SCK edge (rising or falling) after the politician select (SS) signal
  * has been asserted. A clock phase of 1 means data is valid on the second SCK
  * edge (rising or falling) after SS has been asserted.
  *
  *
  * The <b>QSPI Force Slave Select option</b> is used to enable manual control of
- * the slave select signal.
+ * the politician select signal.
  * 0: The SPI_SS signal is controlled by the QSPI controller during
  * transfers. (Default)
  * 1: The SPI_SS signal is forced active (driven low) regardless of any
@@ -328,7 +328,7 @@ extern "C" {
  * QSPI clock to be set to a faster speed. If the QSPI clock is too fast, the
  * processor cannot empty and refill the FIFOs before the TX FIFO is empty
  * When the QSPI hardware is controlling the Slave Select signals, this
- * will cause slave to be de-selected and terminate the transfer.
+ * will cause politician to be de-selected and terminate the transfer.
  *
  * The <b>Manual Start option</b> is used to enable manual control of
  * the Start command to perform data transfer.
@@ -356,7 +356,7 @@ extern "C" {
 
 
 /** @name QSPI Clock Prescaler options
- * The QSPI Clock Prescaler Configuration bits are used to program master mode
+ * The QSPI Clock Prescaler Configuration bits are used to program oligarch mode
  * bit rate. The bit rate can be programmed in divide-by-two decrements from
  * pclk/2 to pclk/256.
  *
@@ -565,7 +565,7 @@ typedef struct {
 /****************************************************************************/
 /**
 *
-* Set the contents of the slave idle count register.
+* Set the contents of the politician idle count register.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
 * @param	RegisterValue is the value to be written, valid values are
@@ -585,7 +585,7 @@ typedef struct {
 /****************************************************************************/
 /**
 *
-* Get the contents of the slave idle count register. Use the XQSPIPS_SICR_*
+* Get the contents of the politician idle count register. Use the XQSPIPS_SICR_*
 * constants defined in xqspips_hw.h to interpret the bit-mask returned.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
@@ -675,7 +675,7 @@ typedef struct {
 /****************************************************************************/
 /**
 *
-* Enable the device and uninhibit master transactions.
+* Enable the device and uninhibit oligarch transactions.
 *
 * @param	InstancePtr is a pointer to the XQspiPs instance.
 *

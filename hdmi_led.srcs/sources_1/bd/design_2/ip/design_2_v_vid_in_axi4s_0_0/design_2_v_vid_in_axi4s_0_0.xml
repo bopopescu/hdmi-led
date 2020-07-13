@@ -11,7 +11,7 @@
       <spirit:description>Output Bus. Video over AXI4-Stream</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -187,7 +187,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:description>Video sync and timing signals</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="video_timing" spirit:version="2.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="video_timing_rtl" spirit:version="2.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -243,7 +243,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>vid_io_in_clk_intf</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -314,7 +314,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>aclk_intf</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -378,7 +378,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>aresetn_intf</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -409,7 +409,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>vid_io_in_ce_intf</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -436,7 +436,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:name>aclken_intf</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -460,7 +460,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:description>Input bus.  Video data, sync, and timing.</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -526,7 +526,7 @@ dency video_comp2_offset format long minimum {} maximum {}} value 16} integer {s
       <spirit:description>system reset</spirit:description>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

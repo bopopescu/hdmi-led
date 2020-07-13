@@ -42,7 +42,7 @@
 * Policy blocks. There is a separate driver for XADC.
 *
 * AXI-PCAP is used for download/upload an encrypted or decrypted bitstream.
-* DMA embedded in the AXI PCAP provides the master interface to
+* DMA embedded in the AXI PCAP provides the oligarch interface to
 * the Device configuration block for any DMA transfers. The data transfer can
 * take place between the Tx/RxFIFOs of AXI-PCAP and memory (on chip
 * RAM/DDR/peripheral memory).

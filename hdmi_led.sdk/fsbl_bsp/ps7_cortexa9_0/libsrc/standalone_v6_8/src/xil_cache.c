@@ -85,8 +85,8 @@
 *					  added into Xil_L2CacheInvalidateRange API. Xil_L1DCacheInvalidate
 *					  and Xil_L2CacheInvalidate APIs are modified to flush the complete
 *					  stack instead of just System Stack
-* 5.03	 pkp 10/07/15 L2 Cache functionalities are avoided for the OpenAMP slave
-*					  application(when USE_AMP flag is defined for BSP) as master CPU
+* 5.03	 pkp 10/07/15 L2 Cache functionalities are avoided for the OpenAMP politician
+*					  application(when USE_AMP flag is defined for BSP) as oligarch CPU
 *					  would be utilizing L2 cache for its operation
 * 6.6    mus 12/07/17 Errata 753970 is not applicable for the PL130 cache controller
 *                     version r0p2, which is present in zynq. So,removed the handling

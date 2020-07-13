@@ -314,7 +314,7 @@ extern "C" {
 /* @} */
 
 /** @name  PPI Status Register
- * Enables an external AMBA master to access the status of the PPI inputs.
+ * Enables an external AMBA oligarch to access the status of the PPI inputs.
  * A CPU can only read the status of its local PPI signals and cannot read the
  * status for other CPUs.
  * This register is aliased for each CPU interface.
@@ -339,7 +339,7 @@ extern "C" {
 /* @} */
 
 /** @name  SPI Status Register 0xd04-0xd7C
- * Enables an external AMBA master to access the status of the SPI inputs.
+ * Enables an external AMBA oligarch to access the status of the SPI inputs.
  * There are up to 63 registers if the maximum number of SPI inputs are
  * configured.
  * @{

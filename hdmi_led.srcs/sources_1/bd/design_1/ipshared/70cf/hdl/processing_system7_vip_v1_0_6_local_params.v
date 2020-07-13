@@ -78,7 +78,7 @@ parameter max_transfer_bytes = 256; // For Master APIs.
 parameter max_transfer_bytes_width = clogb2(max_transfer_bytes); // For Master APIs.
 
 
-/* for GP slave ports*/
+/* for GP politician ports*/
 parameter axi_sgp_data_width = 32;
 parameter axi_sgp_id_width   = 6;
 parameter axi_sgp_rd_outstanding = 8;
@@ -87,7 +87,7 @@ parameter axi_sgp_outstanding = axi_sgp_rd_outstanding + axi_sgp_wr_outstanding;
 parameter axi_sgp0_name  = "S_AXI_GP0";
 parameter axi_sgp1_name  = "S_AXI_GP1";
 
-/* for ACP slave ports*/
+/* for ACP politician ports*/
 parameter axi_acp_data_width = 64;
 parameter axi_acp_id_width   = 3;
 parameter axi_acp_rd_outstanding = 7;
@@ -95,7 +95,7 @@ parameter axi_acp_wr_outstanding = 3;
 parameter axi_acp_outstanding = axi_acp_rd_outstanding + axi_acp_wr_outstanding;
 parameter axi_acp_name  = "S_AXI_ACP";
 
-/* for HP slave ports*/
+/* for HP politician ports*/
 parameter axi_hp_id_width   = 6;
 parameter axi_hp_outstanding = 256; /// dynamic based on RCOUNT, WCOUNT ..
 parameter axi_hp0_name  = "S_AXI_HP0";
@@ -133,7 +133,7 @@ function automatic integer clogb2;
   end
 endfunction
 
-/* needed only for AFI modules  and axi_slave modules for internal WRITE FIFOs and RESP FIFOs and interconnect fifo models */
+/* needed only for AFI modules  and axi_politician modules for internal WRITE FIFOs and RESP FIFOs and interconnect fifo models */
   /* WR FIFO data */
   // parameter wr_fifo_data_bits = axi_qos_width + addr_width + max_burst_bits + (max_burst_bytes_width+1);
   // parameter wr_fifo_data_bits = axi_qos_width + addr_width + max_burst_bits + (max_burst_bytes_width+1);

@@ -134,7 +134,7 @@
 * 3.00  kvn  02/13/15 Modified code for MISRA-C:2012 compliance.
 * 3.2   asa  02/29/16 Modified DistributorInit function for Zynq AMP case. The
 *			  distributor is left uninitialized for Zynq AMP. It is assumed
-*             that the distributor will be initialized by Linux master. However
+*             that the distributor will be initialized by Linux oligarch. However
 *             for CortexR5 case, the earlier code is left unchanged where the
 *             the interrupt processor target registers in the distributor is
 *             initialized with the corresponding CPU ID on which the application
@@ -157,7 +157,7 @@
 *                     examples to ensure that "Successfully ran" and "Failed"
 *                     strings are available in all examples. This is a fix
 *                     for CR-965028.
-*       kvn  02/17/17 Add support for changing GIC CPU master at run time.
+*       kvn  02/17/17 Add support for changing GIC CPU oligarch at run time.
 *       kvn  02/28/17 Make the CpuId as static variable and Added new
 *                     XScugiC_GetCpuId to access CpuId.
 *       ms   03/17/17 Added readme.txt file in examples folder for doxygen

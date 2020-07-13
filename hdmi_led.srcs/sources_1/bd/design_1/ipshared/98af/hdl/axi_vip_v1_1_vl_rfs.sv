@@ -61,7 +61,7 @@
 module axi_vip_v1_1_4_top #
   (
    parameter C_AXI_PROTOCOL                      = 0,
-   parameter C_AXI_INTERFACE_MODE                = 1,  //master, slave and bypass
+   parameter C_AXI_INTERFACE_MODE                = 1,  //oligarch, politician and bypass
    parameter integer C_AXI_ADDR_WIDTH            = 32,
    parameter integer C_AXI_WDATA_WIDTH           = 32,
    parameter integer C_AXI_RDATA_WIDTH           = 32,
@@ -210,154 +210,154 @@ module axi_vip_v1_1_4_top #
   *   C_AXI_INTERFACE_MODE =1 -- PASS-THROUGH MODE 
   *   C_AXI_INTERFACE_MODE =2 -- SLAVE MODE
   *   Please refer xgui tcl and coreinfo.yml
-  *   User can change PASS_THROUGH VIP to run time master mode or run time slave mode during 
+  *   User can change PASS_THROUGH VIP to run time oligarch mode or run time politician mode during 
   *   the simulation 
   *********************************************************************************************/
 
   /**********************************************************************************************
-  * Master_mode means that either the dut is statically being configured to be in master mode
-  * or it statically being configured to be pass-through mode and switched to be in master mode
+  * Master_mode means that either the dut is statically being configured to be in oligarch mode
+  * or it statically being configured to be pass-through mode and switched to be in oligarch mode
   * in run time. 
    
-  * Slave mode means that either the dut is statically being configured to be in slave mode
-  * or it statically being configured to be pass-through mode and switched to be in slave mode
+  * Slave mode means that either the dut is statically being configured to be in politician mode
+  * or it statically being configured to be pass-through mode and switched to be in politician mode
   * in run time. 
 
    * Pass-through mode means that either the dut is statically being configured to be in
    * pass-through mode or it statically being configured to be pass-through mode and switched
-   * to be in master/slave mode and then switch back to be in pass-through mode in run time
+   * to be in oligarch/politician mode and then switch back to be in pass-through mode in run time
   *********************************************************************************************/
 
-  logic runtime_master =0;
-  logic runtime_slave =0;
+  logic runtime_oligarch =0;
+  logic runtime_politician =0;
 
-  wire run_slave_mode;
-  wire run_master_mode;
+  wire run_politician_mode;
+  wire run_oligarch_mode;
   wire run_passth_mode;
-  wire compile_master_mode;
-  wire compile_slave_mode;
-  wire master_mode;
-  wire slave_mode;
+  wire compile_oligarch_mode;
+  wire compile_politician_mode;
+  wire oligarch_mode;
+  wire politician_mode;
 
-  assign run_master_mode = (C_AXI_INTERFACE_MODE ==1 && runtime_master ==1 &&runtime_slave ==0);
-  assign run_slave_mode = C_AXI_INTERFACE_MODE ==1 && runtime_slave ==1 && runtime_master ==0;
-  assign run_passth_mode = (runtime_slave ==0 && runtime_master ==0);
+  assign run_oligarch_mode = (C_AXI_INTERFACE_MODE ==1 && runtime_oligarch ==1 &&runtime_politician ==0);
+  assign run_politician_mode = C_AXI_INTERFACE_MODE ==1 && runtime_politician ==1 && runtime_oligarch ==0;
+  assign run_passth_mode = (runtime_politician ==0 && runtime_oligarch ==0);
 
-  assign compile_master_mode = (C_AXI_INTERFACE_MODE ==0 || C_AXI_INTERFACE_MODE ==1 )&& run_passth_mode ;   
-  assign compile_slave_mode  = (C_AXI_INTERFACE_MODE ==2 || C_AXI_INTERFACE_MODE ==1) && run_passth_mode ;
+  assign compile_oligarch_mode = (C_AXI_INTERFACE_MODE ==0 || C_AXI_INTERFACE_MODE ==1 )&& run_passth_mode ;   
+  assign compile_politician_mode  = (C_AXI_INTERFACE_MODE ==2 || C_AXI_INTERFACE_MODE ==1) && run_passth_mode ;
 
-  assign master_mode = compile_master_mode || run_master_mode; 
-  assign slave_mode = compile_slave_mode || run_slave_mode;
+  assign oligarch_mode = compile_oligarch_mode || run_oligarch_mode; 
+  assign politician_mode = compile_politician_mode || run_politician_mode;
 
   // Slave Interface Write Address Ports Internal
-  assign IF.AWID        = slave_mode? s_axi_awid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
-  assign IF.AWADDR      = slave_mode? s_axi_awaddr : {C_AXI_ADDR_WIDTH{1'bz}};
-  assign IF.AWLEN       = slave_mode? s_axi_awlen : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'bz}};
-  assign IF.AWSIZE      = slave_mode? (C_AXI_SUPPORTS_NARROW==0 ? $clog2(C_AXI_WDATA_WIDTH/8): s_axi_awsize): {3{1'bz}};
-  assign IF.AWBURST     = slave_mode? s_axi_awburst : {2{1'bz}};
-  assign IF.AWLOCK      = slave_mode? s_axi_awlock : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'bz}};
-  assign IF.AWCACHE     = slave_mode? s_axi_awcache : {4{1'bz}};
-  assign IF.AWPROT      = slave_mode? s_axi_awprot : {3{1'bz}};
-  assign IF.AWREGION    = slave_mode? s_axi_awregion : {4{1'bz}};
-  assign IF.AWQOS       = slave_mode? s_axi_awqos : {4{1'bz}};
-  assign IF.AWUSER      = slave_mode? s_axi_awuser : {C_AXI_AWUSER_WIDTH==0?1:C_AXI_AWUSER_WIDTH{1'bz}};
-  assign IF.AWVALID     = slave_mode? s_axi_awvalid : {1'bz};
-  assign s_axi_awready  = slave_mode? IF.AWREADY : {1'b0};
+  assign IF.AWID        = politician_mode? s_axi_awid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
+  assign IF.AWADDR      = politician_mode? s_axi_awaddr : {C_AXI_ADDR_WIDTH{1'bz}};
+  assign IF.AWLEN       = politician_mode? s_axi_awlen : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'bz}};
+  assign IF.AWSIZE      = politician_mode? (C_AXI_SUPPORTS_NARROW==0 ? $clog2(C_AXI_WDATA_WIDTH/8): s_axi_awsize): {3{1'bz}};
+  assign IF.AWBURST     = politician_mode? s_axi_awburst : {2{1'bz}};
+  assign IF.AWLOCK      = politician_mode? s_axi_awlock : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'bz}};
+  assign IF.AWCACHE     = politician_mode? s_axi_awcache : {4{1'bz}};
+  assign IF.AWPROT      = politician_mode? s_axi_awprot : {3{1'bz}};
+  assign IF.AWREGION    = politician_mode? s_axi_awregion : {4{1'bz}};
+  assign IF.AWQOS       = politician_mode? s_axi_awqos : {4{1'bz}};
+  assign IF.AWUSER      = politician_mode? s_axi_awuser : {C_AXI_AWUSER_WIDTH==0?1:C_AXI_AWUSER_WIDTH{1'bz}};
+  assign IF.AWVALID     = politician_mode? s_axi_awvalid : {1'bz};
+  assign s_axi_awready  = politician_mode? IF.AWREADY : {1'b0};
 
   // Slave Interface Write Data Ports  
-  assign IF.WID         = slave_mode? s_axi_wid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
-  assign IF.WDATA       = slave_mode? s_axi_wdata : {C_AXI_WDATA_WIDTH{1'bz}};
-  assign IF.WSTRB       = slave_mode? s_axi_wstrb : {(C_AXI_WDATA_WIDTH/8){1'bz}};
-  assign IF.WLAST       = slave_mode? s_axi_wlast: {1'bz};
-  assign IF.WUSER       = slave_mode? s_axi_wuser : {C_AXI_WUSER_WIDTH==0?1:C_AXI_WUSER_WIDTH{1'bz}};
-  assign IF.WVALID      = slave_mode? s_axi_wvalid : {1'bz}; 
-  assign s_axi_wready   = slave_mode? IF.WREADY : {1'b0};
+  assign IF.WID         = politician_mode? s_axi_wid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
+  assign IF.WDATA       = politician_mode? s_axi_wdata : {C_AXI_WDATA_WIDTH{1'bz}};
+  assign IF.WSTRB       = politician_mode? s_axi_wstrb : {(C_AXI_WDATA_WIDTH/8){1'bz}};
+  assign IF.WLAST       = politician_mode? s_axi_wlast: {1'bz};
+  assign IF.WUSER       = politician_mode? s_axi_wuser : {C_AXI_WUSER_WIDTH==0?1:C_AXI_WUSER_WIDTH{1'bz}};
+  assign IF.WVALID      = politician_mode? s_axi_wvalid : {1'bz}; 
+  assign s_axi_wready   = politician_mode? IF.WREADY : {1'b0};
 
   // Slave Interface Write Response Ports
-  assign s_axi_bid      = slave_mode? IF.BID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
-  assign s_axi_bresp    = slave_mode? IF.BRESP : {2{1'b0}};
-  assign s_axi_buser    = slave_mode? IF.BUSER : {C_AXI_BUSER_WIDTH==0?1:C_AXI_BUSER_WIDTH{1'b0}};
-  assign s_axi_bvalid   = slave_mode? IF.BVALID : {1{1'b0}};
-  assign IF.BREADY      = slave_mode? s_axi_bready :{1{1'bz}};
+  assign s_axi_bid      = politician_mode? IF.BID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
+  assign s_axi_bresp    = politician_mode? IF.BRESP : {2{1'b0}};
+  assign s_axi_buser    = politician_mode? IF.BUSER : {C_AXI_BUSER_WIDTH==0?1:C_AXI_BUSER_WIDTH{1'b0}};
+  assign s_axi_bvalid   = politician_mode? IF.BVALID : {1{1'b0}};
+  assign IF.BREADY      = politician_mode? s_axi_bready :{1{1'bz}};
 
   // Slave Interface Read Address Ports 
-  assign IF.ARID        = slave_mode? s_axi_arid :{C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'bz}};
-  assign IF.ARADDR      = slave_mode? s_axi_araddr : {C_AXI_ADDR_WIDTH{1'bz}} ;
-  assign IF.ARLEN       = slave_mode? s_axi_arlen: {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'bz}};
-  assign IF.ARSIZE      = slave_mode? (C_AXI_SUPPORTS_NARROW==0 ? $clog2(C_AXI_WDATA_WIDTH/8): s_axi_arsize) : {3{1'bz}};
-  assign IF.ARBURST     = slave_mode? s_axi_arburst : {2{1'bz}};
-  assign IF.ARLOCK      = slave_mode? s_axi_arlock : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'bz}};
-  assign IF.ARCACHE     = slave_mode? s_axi_arcache : {4{1'bz}};
-  assign IF.ARPROT      = slave_mode? s_axi_arprot : {3{1'bz}};
-  assign IF.ARREGION    = slave_mode? s_axi_arregion :{4{1'bz}} ;
-  assign IF.ARQOS       = slave_mode? s_axi_arqos : {4{1'bz}};
-  assign IF.ARUSER      = slave_mode? s_axi_aruser :{C_AXI_ARUSER_WIDTH==0?1:C_AXI_ARUSER_WIDTH{1'bz}};
-  assign IF.ARVALID     = slave_mode? s_axi_arvalid : {1'bz};
-  assign s_axi_arready  = slave_mode? IF.ARREADY : {1'b0};
+  assign IF.ARID        = politician_mode? s_axi_arid :{C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'bz}};
+  assign IF.ARADDR      = politician_mode? s_axi_araddr : {C_AXI_ADDR_WIDTH{1'bz}} ;
+  assign IF.ARLEN       = politician_mode? s_axi_arlen: {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'bz}};
+  assign IF.ARSIZE      = politician_mode? (C_AXI_SUPPORTS_NARROW==0 ? $clog2(C_AXI_WDATA_WIDTH/8): s_axi_arsize) : {3{1'bz}};
+  assign IF.ARBURST     = politician_mode? s_axi_arburst : {2{1'bz}};
+  assign IF.ARLOCK      = politician_mode? s_axi_arlock : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'bz}};
+  assign IF.ARCACHE     = politician_mode? s_axi_arcache : {4{1'bz}};
+  assign IF.ARPROT      = politician_mode? s_axi_arprot : {3{1'bz}};
+  assign IF.ARREGION    = politician_mode? s_axi_arregion :{4{1'bz}} ;
+  assign IF.ARQOS       = politician_mode? s_axi_arqos : {4{1'bz}};
+  assign IF.ARUSER      = politician_mode? s_axi_aruser :{C_AXI_ARUSER_WIDTH==0?1:C_AXI_ARUSER_WIDTH{1'bz}};
+  assign IF.ARVALID     = politician_mode? s_axi_arvalid : {1'bz};
+  assign s_axi_arready  = politician_mode? IF.ARREADY : {1'b0};
 
   //Slave Interface Read Data Ports 
-  assign s_axi_rid      = slave_mode?  IF.RID: {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'b0}};
-  assign s_axi_rdata    = slave_mode? IF.RDATA : {C_AXI_RDATA_WIDTH{1'b0}};
-  assign s_axi_rresp    = slave_mode? IF.RRESP : {2{1'b0}};
-  assign s_axi_rlast    = slave_mode? IF.RLAST : {{1'b0}};
-  assign s_axi_ruser    = slave_mode? IF.RUSER : {C_AXI_RUSER_WIDTH==0?1:C_AXI_RUSER_WIDTH{1'b0}};
-  assign s_axi_rvalid   = slave_mode? IF.RVALID : {{1'b0}};
-  assign IF.RREADY      = slave_mode? s_axi_rready:{{1'bz}};
+  assign s_axi_rid      = politician_mode?  IF.RID: {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'b0}};
+  assign s_axi_rdata    = politician_mode? IF.RDATA : {C_AXI_RDATA_WIDTH{1'b0}};
+  assign s_axi_rresp    = politician_mode? IF.RRESP : {2{1'b0}};
+  assign s_axi_rlast    = politician_mode? IF.RLAST : {{1'b0}};
+  assign s_axi_ruser    = politician_mode? IF.RUSER : {C_AXI_RUSER_WIDTH==0?1:C_AXI_RUSER_WIDTH{1'b0}};
+  assign s_axi_rvalid   = politician_mode? IF.RVALID : {{1'b0}};
+  assign IF.RREADY      = politician_mode? s_axi_rready:{{1'bz}};
 
   // Master Interface Write Address Port 
-  assign m_axi_awid     = master_mode? IF.AWID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
-  assign m_axi_awaddr   = master_mode? IF.AWADDR : {C_AXI_ADDR_WIDTH{1'b0}};
-  assign m_axi_awlen    = master_mode? IF.AWLEN : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'b0}};
-  assign m_axi_awsize   = master_mode? IF.AWSIZE : {3{1'b0}};
-  assign m_axi_awburst  = master_mode? IF.AWBURST : {2{1'b0}};
-  assign m_axi_awlock   = master_mode? IF.AWLOCK : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'b0}};
-  assign m_axi_awcache  = master_mode? IF.AWCACHE : {4{1'b0}};
-  assign m_axi_awprot   = master_mode? IF.AWPROT : {3{1'b0}};
-  assign m_axi_awregion = master_mode? IF.AWREGION : {4{1'b0}};
-  assign m_axi_awqos    = master_mode? IF.AWQOS : {4{1'b0}};
-  assign m_axi_awuser   = master_mode? IF.AWUSER : {C_AXI_AWUSER_WIDTH==0?1:C_AXI_AWUSER_WIDTH{1'b0}};
-  assign m_axi_awvalid  = master_mode? IF.AWVALID :{1'b0};
-  assign IF.AWREADY     = master_mode? m_axi_awready :{1'bz};
+  assign m_axi_awid     = oligarch_mode? IF.AWID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
+  assign m_axi_awaddr   = oligarch_mode? IF.AWADDR : {C_AXI_ADDR_WIDTH{1'b0}};
+  assign m_axi_awlen    = oligarch_mode? IF.AWLEN : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'b0}};
+  assign m_axi_awsize   = oligarch_mode? IF.AWSIZE : {3{1'b0}};
+  assign m_axi_awburst  = oligarch_mode? IF.AWBURST : {2{1'b0}};
+  assign m_axi_awlock   = oligarch_mode? IF.AWLOCK : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'b0}};
+  assign m_axi_awcache  = oligarch_mode? IF.AWCACHE : {4{1'b0}};
+  assign m_axi_awprot   = oligarch_mode? IF.AWPROT : {3{1'b0}};
+  assign m_axi_awregion = oligarch_mode? IF.AWREGION : {4{1'b0}};
+  assign m_axi_awqos    = oligarch_mode? IF.AWQOS : {4{1'b0}};
+  assign m_axi_awuser   = oligarch_mode? IF.AWUSER : {C_AXI_AWUSER_WIDTH==0?1:C_AXI_AWUSER_WIDTH{1'b0}};
+  assign m_axi_awvalid  = oligarch_mode? IF.AWVALID :{1'b0};
+  assign IF.AWREADY     = oligarch_mode? m_axi_awready :{1'bz};
 
   // Master Interface Write Data Ports Internal
-  assign m_axi_wid      = master_mode? IF.WID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
-  assign m_axi_wdata    = master_mode? IF.WDATA : {C_AXI_WDATA_WIDTH{1'b0}};
-  assign m_axi_wstrb    = master_mode? IF.WSTRB : {(C_AXI_WDATA_WIDTH/8){1'b0}};
-  assign m_axi_wlast    = master_mode? IF.WLAST : {1'b0};
-  assign m_axi_wuser    = master_mode? IF.WUSER : {C_AXI_WUSER_WIDTH==0?1:C_AXI_WUSER_WIDTH{1'b0}};
-  assign m_axi_wvalid   = master_mode? IF.WVALID : {1'b0};
-  assign IF.WREADY      = master_mode? m_axi_wready : {1'bz};
+  assign m_axi_wid      = oligarch_mode? IF.WID : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'b0}};
+  assign m_axi_wdata    = oligarch_mode? IF.WDATA : {C_AXI_WDATA_WIDTH{1'b0}};
+  assign m_axi_wstrb    = oligarch_mode? IF.WSTRB : {(C_AXI_WDATA_WIDTH/8){1'b0}};
+  assign m_axi_wlast    = oligarch_mode? IF.WLAST : {1'b0};
+  assign m_axi_wuser    = oligarch_mode? IF.WUSER : {C_AXI_WUSER_WIDTH==0?1:C_AXI_WUSER_WIDTH{1'b0}};
+  assign m_axi_wvalid   = oligarch_mode? IF.WVALID : {1'b0};
+  assign IF.WREADY      = oligarch_mode? m_axi_wready : {1'bz};
 
   // Master Interface Write Response Ports Internal
-  assign IF.BID        = master_mode? m_axi_bid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
-  assign IF.BRESP      = master_mode? m_axi_bresp : {2{1'bz}};
-  assign IF.BUSER      = master_mode? m_axi_buser : {C_AXI_BUSER_WIDTH==0?1:C_AXI_BUSER_WIDTH{1'bz}};
-  assign IF.BVALID     = master_mode? m_axi_bvalid : 1'bz;
-  assign m_axi_bready  = master_mode? IF.BREADY : 1'b0;
+  assign IF.BID        = oligarch_mode? m_axi_bid : {C_AXI_WID_WIDTH==0?1:C_AXI_WID_WIDTH{1'bz}};
+  assign IF.BRESP      = oligarch_mode? m_axi_bresp : {2{1'bz}};
+  assign IF.BUSER      = oligarch_mode? m_axi_buser : {C_AXI_BUSER_WIDTH==0?1:C_AXI_BUSER_WIDTH{1'bz}};
+  assign IF.BVALID     = oligarch_mode? m_axi_bvalid : 1'bz;
+  assign m_axi_bready  = oligarch_mode? IF.BREADY : 1'b0;
 
   // Master Interface Read Address Port Internal
-  assign m_axi_arid     = master_mode? IF.ARID : {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'b0}};
-  assign m_axi_araddr   = master_mode? IF.ARADDR : {C_AXI_ADDR_WIDTH{1'b0}};
-  assign m_axi_arlen    = master_mode? IF.ARLEN : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'b0}};
-  assign m_axi_arsize   = master_mode? IF.ARSIZE : {3{1'b0}};
-  assign m_axi_arburst  = master_mode? IF.ARBURST : {2{1'b0}};
-  assign m_axi_arlock   = master_mode? IF.ARLOCK : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'b0}};
-  assign m_axi_arcache  = master_mode?IF.ARCACHE : {4{1'b0}};
-  assign m_axi_arprot   = master_mode? IF.ARPROT : {3{1'b0}};
-  assign m_axi_arregion = master_mode? IF.ARREGION : {4{1'b0}};
-  assign m_axi_arqos    = master_mode? IF.ARQOS : {4{1'b0}};
-  assign m_axi_aruser   = master_mode? IF.ARUSER : {C_AXI_ARUSER_WIDTH==0?1:C_AXI_ARUSER_WIDTH{1'b0}};
-  assign m_axi_arvalid  = master_mode? IF.ARVALID :{1'b0};
-  assign IF.ARREADY     = master_mode? m_axi_arready : {1{1'bz}};
+  assign m_axi_arid     = oligarch_mode? IF.ARID : {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'b0}};
+  assign m_axi_araddr   = oligarch_mode? IF.ARADDR : {C_AXI_ADDR_WIDTH{1'b0}};
+  assign m_axi_arlen    = oligarch_mode? IF.ARLEN : {((C_AXI_PROTOCOL == 1) ? 4 : 8){1'b0}};
+  assign m_axi_arsize   = oligarch_mode? IF.ARSIZE : {3{1'b0}};
+  assign m_axi_arburst  = oligarch_mode? IF.ARBURST : {2{1'b0}};
+  assign m_axi_arlock   = oligarch_mode? IF.ARLOCK : {((C_AXI_PROTOCOL == 1) ? 2 : 1){1'b0}};
+  assign m_axi_arcache  = oligarch_mode?IF.ARCACHE : {4{1'b0}};
+  assign m_axi_arprot   = oligarch_mode? IF.ARPROT : {3{1'b0}};
+  assign m_axi_arregion = oligarch_mode? IF.ARREGION : {4{1'b0}};
+  assign m_axi_arqos    = oligarch_mode? IF.ARQOS : {4{1'b0}};
+  assign m_axi_aruser   = oligarch_mode? IF.ARUSER : {C_AXI_ARUSER_WIDTH==0?1:C_AXI_ARUSER_WIDTH{1'b0}};
+  assign m_axi_arvalid  = oligarch_mode? IF.ARVALID :{1'b0};
+  assign IF.ARREADY     = oligarch_mode? m_axi_arready : {1{1'bz}};
 
   // Master Interface Read Data Ports Internal
-  assign IF.RID        = master_mode? m_axi_rid : {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'bz}};
-  assign IF.RDATA      = master_mode? m_axi_rdata : {C_AXI_RDATA_WIDTH{1'bz}};
-  assign IF.RRESP      = master_mode? m_axi_rresp : {2{1'bz}};
-  assign IF.RLAST      = master_mode? m_axi_rlast : {1{1'bz}};
-  assign IF.RUSER      = master_mode? m_axi_ruser : {C_AXI_RUSER_WIDTH==0?1:C_AXI_RUSER_WIDTH{1'bz}};
-  assign IF.RVALID     = master_mode? m_axi_rvalid : {1{1'bz}};
-  assign m_axi_rready  = master_mode? IF.RREADY : {1{1'b0}};
+  assign IF.RID        = oligarch_mode? m_axi_rid : {C_AXI_RID_WIDTH==0?1:C_AXI_RID_WIDTH{1'bz}};
+  assign IF.RDATA      = oligarch_mode? m_axi_rdata : {C_AXI_RDATA_WIDTH{1'bz}};
+  assign IF.RRESP      = oligarch_mode? m_axi_rresp : {2{1'bz}};
+  assign IF.RLAST      = oligarch_mode? m_axi_rlast : {1{1'bz}};
+  assign IF.RUSER      = oligarch_mode? m_axi_ruser : {C_AXI_RUSER_WIDTH==0?1:C_AXI_RUSER_WIDTH{1'bz}};
+  assign IF.RVALID     = oligarch_mode? m_axi_rvalid : {1{1'bz}};
+  assign m_axi_rready  = oligarch_mode? IF.RREADY : {1{1'b0}};
 
   axi_vip_if #(
     .C_AXI_PROTOCOL(C_AXI_PROTOCOL),
@@ -398,9 +398,9 @@ module axi_vip_v1_1_4_top #
   generate
     initial begin
       if(C_AXI_INTERFACE_MODE ==0) begin
-        IF.set_intf_master;
+        IF.set_intf_oligarch;
       end else if(C_AXI_INTERFACE_MODE ==2) begin
-        IF.set_intf_slave;
+        IF.set_intf_politician;
       end else if(C_AXI_INTERFACE_MODE ==1) begin
         $display("This AXI VIP is in passthrough mode");
       end else begin
@@ -415,56 +415,56 @@ module axi_vip_v1_1_4_top #
   */
   function void set_passthrough_mode();
     if (C_AXI_INTERFACE_MODE == 1) begin
-      runtime_master = 0;
-      runtime_slave = 0;
+      runtime_oligarch = 0;
+      runtime_politician = 0;
       IF.set_intf_monitor();
     end else begin
-      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete non-Passthrough VIP's API call of set_passthrough_mode in the testbench. Refer PG267 section about Useful Coding Guidelines and Example for how to use master/slave/passthrough VIP");
+      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete non-Passthrough VIP's API call of set_passthrough_mode in the testbench. Refer PG267 section about Useful Coding Guidelines and Example for how to use oligarch/politician/passthrough VIP");
     end
   endfunction: set_passthrough_mode
 
   /*
-   Function: set_master_mode
-   Sets AXI VIP passthrough into run time master mode
+   Function: set_oligarch_mode
+   Sets AXI VIP passthrough into run time oligarch mode
   */
-  function void set_master_mode();
+  function void set_oligarch_mode();
     if (C_AXI_INTERFACE_MODE == 1) begin
-      runtime_master = 1;
-      runtime_slave = 0;
-      IF.set_intf_master();
+      runtime_oligarch = 1;
+      runtime_politician = 0;
+      IF.set_intf_oligarch();
     end else begin
-      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete non-Passthrough VIP's API call of set_master_mode in the testbench .Refer PG267 section about Useful Coding Guidelines and Example for how to use master/slave/passthrough VIP ");
+      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete non-Passthrough VIP's API call of set_oligarch_mode in the testbench .Refer PG267 section about Useful Coding Guidelines and Example for how to use oligarch/politician/passthrough VIP ");
     end
-  endfunction : set_master_mode
+  endfunction : set_oligarch_mode
 
   /*
-   Function: set_slave_mode
-   Sets AXI VIP passthrough into run time slave mode
+   Function: set_politician_mode
+   Sets AXI VIP passthrough into run time politician mode
   */
-  function void set_slave_mode();
+  function void set_politician_mode();
     if (C_AXI_INTERFACE_MODE == 1) begin
-      runtime_master = 0;
-      runtime_slave = 1;
-      IF.set_intf_slave();
+      runtime_oligarch = 0;
+      runtime_politician = 1;
+      IF.set_intf_politician();
     end else begin
-      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete  non-Passthrough VIP's API call of set_slave_mode in the testbench.Refer PG267 section about Useful Coding Guidelines and Example for how to use master/slave/passthrough VIP");
+      $fatal(0,"XilinxAXIVIP: VIP was not initially configured as Pass-through. Cannot change mode.Delete  non-Passthrough VIP's API call of set_politician_mode in the testbench.Refer PG267 section about Useful Coding Guidelines and Example for how to use oligarch/politician/passthrough VIP");
     end
-  endfunction : set_slave_mode
+  endfunction : set_politician_mode
 
   /*
-  Function: set_xilinx_slave_ready_check
-  Sets xilinx_slave_ready_check_enable of IF to be 1
+  Function: set_xilinx_politician_ready_check
+  Sets xilinx_politician_ready_check_enable of IF to be 1
   */
-  function void set_xilinx_slave_ready_check();
-    IF.xilinx_slave_ready_check_enable = 1;
+  function void set_xilinx_politician_ready_check();
+    IF.xilinx_politician_ready_check_enable = 1;
   endfunction
 
   /*
-   Function: clr_xilinx_slave_ready_check
-   Sets xilinx_slave_ready_check_enable of IF to be 0
+   Function: clr_xilinx_politician_ready_check
+   Sets xilinx_politician_ready_check_enable of IF to be 0
   */
-  function void clr_xilinx_slave_ready_check();
-    IF.xilinx_slave_ready_check_enable = 0;
+  function void clr_xilinx_politician_ready_check();
+    IF.xilinx_politician_ready_check_enable = 0;
   endfunction
 
   /*

@@ -216,12 +216,12 @@ extern "C" {
 /** @name Delay Register
  *
  * This register is used to program timing delays in
- * slave mode. Read/Write
+ * politician mode. Read/Write
  * @{
  */
-#define XQSPIPS_DR_NSS_MASK	0xFF000000 /**< Delay to de-assert slave select
+#define XQSPIPS_DR_NSS_MASK	0xFF000000 /**< Delay to de-assert politician select
 						between two words mask */
-#define XQSPIPS_DR_NSS_SHIFT	24	   /**< Delay to de-assert slave select
+#define XQSPIPS_DR_NSS_SHIFT	24	   /**< Delay to de-assert politician select
 						between two words shift */
 #define XQSPIPS_DR_BTWN_MASK	0x00FF0000 /**< Delay Between Transfers
 						mask */
@@ -233,7 +233,7 @@ extern "C" {
 
 /** @name Slave Idle Count Registers
  *
- * This register defines the number of pclk cycles the slave waits for a the
+ * This register defines the number of pclk cycles the politician waits for a the
  * QSPI clock to become stable in quiescent state before it can detect the start
  * of the next transfer in CPHA = 1 mode.
  * Read/Write

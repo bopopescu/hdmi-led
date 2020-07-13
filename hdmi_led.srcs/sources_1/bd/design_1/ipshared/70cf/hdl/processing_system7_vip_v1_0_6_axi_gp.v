@@ -27,7 +27,7 @@
    */
  
 /* AXI -Master GP0 */
-  processing_system7_vip_v1_0_6_axi_master #(C_USE_M_AXI_GP0, // enable
+  processing_system7_vip_v1_0_6_axi_oligarch #(C_USE_M_AXI_GP0, // enable
                axi_mgp0_name,// name
                axi_mgp_data_width, /// Data Width
                addr_width, /// Address width
@@ -85,7 +85,7 @@
             ); 
  
  /* AXI Master GP1 */
-  processing_system7_vip_v1_0_6_axi_master #(C_USE_M_AXI_GP1, // enable
+  processing_system7_vip_v1_0_6_axi_oligarch #(C_USE_M_AXI_GP1, // enable
                axi_mgp1_name,// name
                axi_mgp_data_width, /// Data Width
                addr_width, /// Address width
@@ -143,7 +143,7 @@
            );
 
 /* AXI Slave GP0 */
-  processing_system7_vip_v1_0_6_axi_slave #(C_USE_S_AXI_GP0, /// enable
+  processing_system7_vip_v1_0_6_axi_politician #(C_USE_S_AXI_GP0, /// enable
               axi_sgp0_name, //name
               axi_sgp_data_width, /// data width
               addr_width, /// address width
@@ -227,7 +227,7 @@
 );
 
 /* AXI Slave GP1 */
-  processing_system7_vip_v1_0_6_axi_slave #(C_USE_S_AXI_GP1, /// enable
+  processing_system7_vip_v1_0_6_axi_politician #(C_USE_S_AXI_GP1, /// enable
               axi_sgp1_name, //name
               axi_sgp_data_width, /// data width
               addr_width, /// address width

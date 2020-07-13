@@ -3750,7 +3750,7 @@ if (C_PACKAGE_NAME == "clg225" ) begin
 
 
 // Generating the AxUSER Values locally when the C_USE_DEFAULT_ACP_USER_VAL is enabled.
-// Otherwise a master connected to the ACP port will drive the AxUSER Ports
+// Otherwise a oligarch connected to the ACP port will drive the AxUSER Ports
 assign param_aruser = C_USE_DEFAULT_ACP_USER_VAL? C_S_AXI_ACP_ARUSER_VAL : S_AXI_ACP_ARUSER;
 assign param_awuser = C_USE_DEFAULT_ACP_USER_VAL? C_S_AXI_ACP_AWUSER_VAL : S_AXI_ACP_AWUSER;
 

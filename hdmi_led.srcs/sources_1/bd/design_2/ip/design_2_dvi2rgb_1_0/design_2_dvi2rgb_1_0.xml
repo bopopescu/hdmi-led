@@ -9,7 +9,7 @@
       <spirit:name>TMDS</spirit:name>
       <spirit:busType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="tmds" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="tmds_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -55,7 +55,7 @@
       <spirit:name>SerialClk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -134,7 +134,7 @@
       <spirit:name>RefClk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -206,7 +206,7 @@
       <spirit:name>SyncRst</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -244,7 +244,7 @@
       <spirit:name>AsyncRst</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -282,7 +282,7 @@
       <spirit:name>AsyncRst_n</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -313,7 +313,7 @@
       <spirit:name>SyncRst_n</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -345,7 +345,7 @@
       <spirit:displayName>RGB Video Output</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -386,7 +386,7 @@
       <spirit:displayName>Pixel clock for RGB video output</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -458,7 +458,7 @@
       <spirit:name>TMDS_Clk_n</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -525,7 +525,7 @@
       <spirit:name>TMDS_Clk_p</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:politician/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -592,7 +592,7 @@
       <spirit:name>DDC</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="iic" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="iic_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:oligarch/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

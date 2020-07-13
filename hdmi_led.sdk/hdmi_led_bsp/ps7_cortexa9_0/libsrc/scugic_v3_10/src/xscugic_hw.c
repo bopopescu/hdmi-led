@@ -58,7 +58,7 @@
 *                     XScuGic_SetPriTrigTypeByDistAddr and
 *                     XScuGic_GetPriTrigTypeByDistAddr here from xscugic.c
 * 3.00  kvn  02/13/15 Modified code for MISRA-C:2012 compliance.
-* 3.6   kvn  02/17/17 Add support for changing GIC CPU master at run time.
+* 3.6   kvn  02/17/17 Add support for changing GIC CPU oligarch at run time.
 *       kvn  02/28/17 Make the CpuId as static variable and Added new
 *                     XScugiC_GetCpuId to access CpuId.
 * 3.9   mus  02/21/18 Added new API's 
@@ -133,7 +133,7 @@ static void DistInit(XScuGic_Config *Config, u32 CpuID)
 
 	/*
 	 * The distrubutor should not be initialized by FreeRTOS in the case of
-	 * AMP -- it is assumed that Linux is the master of this device in that
+	 * AMP -- it is assumed that Linux is the oligarch of this device in that
 	 * case.
 	 */
 	return;

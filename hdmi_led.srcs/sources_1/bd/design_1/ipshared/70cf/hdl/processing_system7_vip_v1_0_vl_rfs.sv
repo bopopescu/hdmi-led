@@ -5164,7 +5164,7 @@ endmodule
 
 
 /*****************************************************************************
- * File : processing_system7_vip_v1_0_6_axi_slave.v
+ * File : processing_system7_vip_v1_0_6_axi_politician.v
  *
  * Date : 2012-11
  *
@@ -5175,7 +5175,7 @@ endmodule
 
 import axi_vip_pkg::*;
 
-module processing_system7_vip_v1_0_6_axi_slave (
+module processing_system7_vip_v1_0_6_axi_politician (
   S_RESETN,
 
   S_ARREADY,
@@ -5246,12 +5246,12 @@ module processing_system7_vip_v1_0_6_axi_slave (
 );
 
   parameter enable_this_port = 0;  
-  parameter slave_name = "Slave";
+  parameter politician_name = "Slave";
   parameter data_bus_width = 32;
   parameter address_bus_width = 32;
   parameter id_bus_width = 6;
-  parameter slave_base_address = 0;
-  parameter slave_high_address = 4;
+  parameter politician_base_address = 0;
+  parameter politician_high_address = 4;
   parameter max_outstanding_transactions = 8;
   parameter exclusive_access_supported = 0;
   parameter max_wr_outstanding_transactions = 8;
@@ -5391,7 +5391,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
      .C_AXI_HAS_BRESP(1),
      .C_AXI_HAS_RRESP(1),
  	 .C_AXI_HAS_ARESETN(1)
-   ) slave (
+   ) politician (
      .aclk(S_ACLK),
      .aclken(1'B1),
      .aresetn(S_RESETN),
@@ -5502,7 +5502,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
    bit [15:0] a_16_bits,a_new,a_wrap,a_wrt_val,a_cnt;
 
   initial begin
-   slv = new("slv",slave.IF);
+   slv = new("slv",politician.IF);
    twr = new("twr");
    trr = new("trr");
    trr_get_rd = new("trr_get_rd");
@@ -5512,13 +5512,13 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
    slv.monitor.axi_rd_cmd_port.set_enabled();
    slv.wr_driver.set_transaction_depth(max_wr_outstanding_transactions);
    slv.rd_driver.set_transaction_depth(max_rd_outstanding_transactions);
-   slv.start_slave();
+   slv.start_politician();
   end
 
   initial begin
-    slave.IF.set_enable_xchecks_to_warn();
+    politician.IF.set_enable_xchecks_to_warn();
     repeat(10) @(posedge S_ACLK);
-    slave.IF.set_enable_xchecks();
+    politician.IF.set_enable_xchecks();
    end 
 
   /* Latency type and Debug/Error Control */
@@ -5589,20 +5589,20 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
   initial begin
    if(DEBUG_INFO) begin
     if(enable_this_port)
-     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, politician_name);
     else
-     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, politician_name);
    end
   end
 
-//initial slave.set_disable_reset_value_checks(1); 
+//initial politician.set_disable_reset_value_checks(1); 
   initial begin
      repeat(2) @(posedge S_ACLK);
      if(!enable_this_port) begin
-//      slave.set_channel_level_info(0);
-//      slave.set_function_level_info(0);
+//      politician.set_channel_level_info(0);
+//      politician.set_function_level_info(0);
      end 
-//   slave.RESPONSE_TIMEOUT = 0;
+//   politician.RESPONSE_TIMEOUT = 0;
   end
   /*--------------------------------------------------------------------------------*/
 
@@ -5614,7 +5614,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
     latency_type = lat;
    else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -5628,7 +5628,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
     slv.set_verbosity(verb);
    end  else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, politician_name);
    end
 
   end
@@ -5645,7 +5645,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
     ar_qos = qos;
    end else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
 
   end
@@ -5660,7 +5660,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
     aw_qos = qos;
    else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -5671,15 +5671,15 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
   reg[1:0] temp;
   begin 
    case(latency_type)
-    BEST_CASE   : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_min; else get_wr_lat_number = gp_wr_min;            
-    AVG_CASE    : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_avg; else get_wr_lat_number = gp_wr_avg;            
-    WORST_CASE  : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_max; else get_wr_lat_number = gp_wr_max;            
+    BEST_CASE   : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_min; else get_wr_lat_number = gp_wr_min;            
+    AVG_CASE    : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_avg; else get_wr_lat_number = gp_wr_avg;            
+    WORST_CASE  : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_max; else get_wr_lat_number = gp_wr_max;            
     default     : begin  // RANDOM_CASE
                    temp = $random;
                    case(temp) 
-                    2'b00   : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%10+ acp_wr_min); else get_wr_lat_number = ($random()%10+ gp_wr_min); 
-                    2'b01   : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%40+ acp_wr_avg); else get_wr_lat_number = ($random()%40+ gp_wr_avg); 
-                    default : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%60+ acp_wr_max); else get_wr_lat_number = ($random()%60+ gp_wr_max); 
+                    2'b00   : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%10+ acp_wr_min); else get_wr_lat_number = ($random()%10+ gp_wr_min); 
+                    2'b01   : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%40+ acp_wr_avg); else get_wr_lat_number = ($random()%40+ gp_wr_avg); 
+                    default : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%60+ acp_wr_max); else get_wr_lat_number = ($random()%60+ gp_wr_max); 
                    endcase        
                   end
    endcase
@@ -5693,15 +5693,15 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
   reg[1:0] temp;
   begin 
    case(latency_type)
-    BEST_CASE   : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_min; else get_rd_lat_number = gp_rd_min;            
-    AVG_CASE    : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_avg; else get_rd_lat_number = gp_rd_avg;            
-    WORST_CASE  : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_max; else get_rd_lat_number = gp_rd_max;            
+    BEST_CASE   : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_min; else get_rd_lat_number = gp_rd_min;            
+    AVG_CASE    : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_avg; else get_rd_lat_number = gp_rd_avg;            
+    WORST_CASE  : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_max; else get_rd_lat_number = gp_rd_max;            
     default     : begin  // RANDOM_CASE
                    temp = $random;
                    case(temp) 
-                    2'b00   : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%10+ acp_rd_min); else get_rd_lat_number = ($random()%10+ gp_rd_min); 
-                    2'b01   : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%40+ acp_rd_avg); else get_rd_lat_number = ($random()%40+ gp_rd_avg); 
-                    default : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%60+ acp_rd_max); else get_rd_lat_number = ($random()%60+ gp_rd_max); 
+                    2'b00   : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%10+ acp_rd_min); else get_rd_lat_number = ($random()%10+ gp_rd_min); 
+                    2'b01   : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%40+ acp_rd_avg); else get_rd_lat_number = ($random()%40+ gp_rd_avg); 
+                    default : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%60+ acp_rd_max); else get_rd_lat_number = ($random()%60+ gp_rd_max); 
                    endcase        
                   end
    endcase
@@ -5726,7 +5726,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
  always@(S_AWVALID or S_WVALID or S_ARVALID)
  begin
   if((S_AWVALID | S_WVALID | S_ARVALID) && !enable_this_port) begin
-    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, slave_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, politician_name);
    //== $stop;
     $finish;
   end
@@ -5772,7 +5772,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
   always@(aw_fifo_full)
   begin
   if(aw_fifo_full && DEBUG_INFO) 
-    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, slave_name,max_wr_outstanding_transactions);
+    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, politician_name,max_wr_outstanding_transactions);
   end
   /*--------------------------------------------------------------------------------*/
   
@@ -6073,12 +6073,12 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
     rsp = AXI_OK;
     /* Address Decode */
     if(decode_address(awaddr) === INVALID_MEM_TYPE) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) ",$time, DISP_ERR, slave_name, awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) ",$time, DISP_ERR, politician_name, awaddr);
     end
     if(!rd_wr && decode_address(awaddr) === REG_MEM) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, slave_name, awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, politician_name, awaddr);
     end
     if(secure_access_enabled && awprot[1])
      rsp = AXI_DEC_ERR; // decode error
@@ -6415,7 +6415,7 @@ parameter wr_fifo_data_bits = ((data_bus_width/8)*axi_burst_len) + (data_bus_wid
   always@(ar_fifo_full)
   begin
   if(ar_fifo_full && DEBUG_INFO) 
-    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, slave_name,max_rd_outstanding_transactions);
+    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, politician_name,max_rd_outstanding_transactions);
   end
   /*--------------------------------------------------------------------------------*/
   
@@ -6774,7 +6774,7 @@ endmodule
 
 
 /********************************************************************
- * File : processing_system7_vip_v1_0_6_axi_slave_acp.sv
+ * File : processing_system7_vip_v1_0_6_axi_politician_acp.sv
  *
  * Date : 2012-11
  *
@@ -6784,7 +6784,7 @@ endmodule
  `timescale 1ns/1ps
  import axi_vip_pkg::*;
 
-module processing_system7_vip_v1_0_6_axi_slave_acp (
+module processing_system7_vip_v1_0_6_axi_politician_acp (
   S_RESETN,
 
   S_ARREADY,
@@ -6854,7 +6854,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
 
 );
   parameter enable_this_port = 0;  
-  parameter slave_name = "Slave";
+  parameter politician_name = "Slave";
   parameter data_bus_width = 32;
   parameter address_bus_width = 32;
   parameter id_bus_width = 6;
@@ -6863,8 +6863,8 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   parameter ruser_bus_width  = 1;
   parameter wuser_bus_width  = 1;
   parameter buser_bus_width  = 1;
-  parameter slave_base_address = 0;
-  parameter slave_high_address = 4;
+  parameter politician_base_address = 0;
+  parameter politician_high_address = 4;
   parameter max_outstanding_transactions = 8;
   parameter exclusive_access_supported = 0;
   parameter max_wr_outstanding_transactions = 8;
@@ -7002,7 +7002,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
      .C_AXI_HAS_BRESP(1),
      .C_AXI_HAS_RRESP(1),
  	 .C_AXI_HAS_ARESETN(1)
-   ) slave (
+   ) politician (
      .aclk(S_ACLK),
      .aclken(1'B1),
      .aresetn(S_RESETN),
@@ -7112,7 +7112,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
    bit [15:0] a_16_bits,a_new,a_wrap,a_wrt_val,a_cnt;
 
   initial begin
-   slv = new("slv",slave.IF);
+   slv = new("slv",politician.IF);
    twr = new("twr");
    trr = new("trr");
    trr_get_rd = new("trr_get_rd");
@@ -7122,13 +7122,13 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
    slv.monitor.axi_rd_cmd_port.set_enabled();
    slv.wr_driver.set_transaction_depth(max_wr_outstanding_transactions);
    slv.rd_driver.set_transaction_depth(max_rd_outstanding_transactions);
-   slv.start_slave();
+   slv.start_politician();
   end
 
   initial begin
-    slave.IF.set_enable_xchecks_to_warn();
+    politician.IF.set_enable_xchecks_to_warn();
     repeat(10) @(posedge S_ACLK);
-    slave.IF.set_enable_xchecks();
+    politician.IF.set_enable_xchecks();
    end 
 
 
@@ -7199,18 +7199,18 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   initial begin
    if(DEBUG_INFO) begin
     if(enable_this_port)
-     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, politician_name);
     else
-     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, politician_name);
    end
   end
 
-//initial slave.set_disable_reset_value_checks(1); 
+//initial politician.set_disable_reset_value_checks(1); 
   initial begin
      repeat(2) @(posedge S_ACLK);
      if(!enable_this_port) begin
      end 
-//   slave.RESPONSE_TIMEOUT = 0;
+//   politician.RESPONSE_TIMEOUT = 0;
   end
   /*--------------------------------------------------------------------------------*/
 
@@ -7222,7 +7222,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
     latency_type = lat;
    else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -7236,7 +7236,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
     slv.set_verbosity(verb);
    end  else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, politician_name);
    end
 
   end
@@ -7251,7 +7251,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
     ar_qos = qos;
    end  else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
 
   end
@@ -7266,7 +7266,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
     aw_qos = qos;
    else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -7277,15 +7277,15 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   reg[1:0] temp;
   begin 
    case(latency_type)
-    BEST_CASE   : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_min; else get_wr_lat_number = gp_wr_min;            
-    AVG_CASE    : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_avg; else get_wr_lat_number = gp_wr_avg;            
-    WORST_CASE  : if(slave_name == axi_acp_name) get_wr_lat_number = acp_wr_max; else get_wr_lat_number = gp_wr_max;            
+    BEST_CASE   : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_min; else get_wr_lat_number = gp_wr_min;            
+    AVG_CASE    : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_avg; else get_wr_lat_number = gp_wr_avg;            
+    WORST_CASE  : if(politician_name == axi_acp_name) get_wr_lat_number = acp_wr_max; else get_wr_lat_number = gp_wr_max;            
     default     : begin  // RANDOM_CASE
                    temp = $random;
                    case(temp) 
-                    2'b00   : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%10+ acp_wr_min); else get_wr_lat_number = ($random()%10+ gp_wr_min); 
-                    2'b01   : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%40+ acp_wr_avg); else get_wr_lat_number = ($random()%40+ gp_wr_avg); 
-                    default : if(slave_name == axi_acp_name) get_wr_lat_number = ($random()%60+ acp_wr_max); else get_wr_lat_number = ($random()%60+ gp_wr_max); 
+                    2'b00   : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%10+ acp_wr_min); else get_wr_lat_number = ($random()%10+ gp_wr_min); 
+                    2'b01   : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%40+ acp_wr_avg); else get_wr_lat_number = ($random()%40+ gp_wr_avg); 
+                    default : if(politician_name == axi_acp_name) get_wr_lat_number = ($random()%60+ acp_wr_max); else get_wr_lat_number = ($random()%60+ gp_wr_max); 
                    endcase        
                   end
    endcase
@@ -7299,15 +7299,15 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   reg[1:0] temp;
   begin 
    case(latency_type)
-    BEST_CASE   : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_min; else get_rd_lat_number = gp_rd_min;            
-    AVG_CASE    : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_avg; else get_rd_lat_number = gp_rd_avg;            
-    WORST_CASE  : if(slave_name == axi_acp_name) get_rd_lat_number = acp_rd_max; else get_rd_lat_number = gp_rd_max;            
+    BEST_CASE   : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_min; else get_rd_lat_number = gp_rd_min;            
+    AVG_CASE    : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_avg; else get_rd_lat_number = gp_rd_avg;            
+    WORST_CASE  : if(politician_name == axi_acp_name) get_rd_lat_number = acp_rd_max; else get_rd_lat_number = gp_rd_max;            
     default     : begin  // RANDOM_CASE
                    temp = $random;
                    case(temp) 
-                    2'b00   : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%10+ acp_rd_min); else get_rd_lat_number = ($random()%10+ gp_rd_min); 
-                    2'b01   : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%40+ acp_rd_avg); else get_rd_lat_number = ($random()%40+ gp_rd_avg); 
-                    default : if(slave_name == axi_acp_name) get_rd_lat_number = ($random()%60+ acp_rd_max); else get_rd_lat_number = ($random()%60+ gp_rd_max); 
+                    2'b00   : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%10+ acp_rd_min); else get_rd_lat_number = ($random()%10+ gp_rd_min); 
+                    2'b01   : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%40+ acp_rd_avg); else get_rd_lat_number = ($random()%40+ gp_rd_avg); 
+                    default : if(politician_name == axi_acp_name) get_rd_lat_number = ($random()%60+ acp_rd_max); else get_rd_lat_number = ($random()%60+ gp_rd_max); 
                    endcase        
                   end
    endcase
@@ -7333,7 +7333,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
  always@(S_AWVALID or S_WVALID or S_ARVALID)
  begin
   if((S_AWVALID | S_WVALID | S_ARVALID) && !enable_this_port) begin
-    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, slave_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, politician_name);
     // $stop;
 	$finish;
   end
@@ -7385,7 +7385,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   always@(aw_fifo_full)
   begin
   if(aw_fifo_full && DEBUG_INFO) 
-     $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, slave_name,max_wr_outstanding_transactions);
+     $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, politician_name,max_wr_outstanding_transactions);
   end
   /*--------------------------------------------------------------------------------*/
   
@@ -7710,12 +7710,12 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
     rsp = AXI_OK;
     /* Address Decode */
     if(decode_address(awaddr) === INVALID_MEM_TYPE) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) awaddr %0h",$time, DISP_ERR, slave_name, awaddr,awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) awaddr %0h",$time, DISP_ERR, politician_name, awaddr,awaddr);
     end
     if(!rd_wr && decode_address(awaddr) === REG_MEM) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, slave_name, awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, politician_name, awaddr);
     end
     if(secure_access_enabled && awprot[1])
      rsp = AXI_DEC_ERR; // decode error
@@ -7998,7 +7998,7 @@ module processing_system7_vip_v1_0_6_axi_slave_acp (
   always@(ar_fifo_full)
   begin
   if(ar_fifo_full && DEBUG_INFO) 
-    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, slave_name,max_rd_outstanding_transactions);
+    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, politician_name,max_rd_outstanding_transactions);
   end
   /*--------------------------------------------------------------------------------*/
   
@@ -8320,7 +8320,7 @@ endmodule
 
 
 /*****************************************************************************
- * File : processing_system7_vip_v1_0_6_axi_master.v
+ * File : processing_system7_vip_v1_0_6_axi_oligarch.v
  *
  * Date : 2012-11
  *
@@ -8331,7 +8331,7 @@ endmodule
 
 import axi_vip_pkg::*;
 
-module processing_system7_vip_v1_0_6_axi_master (
+module processing_system7_vip_v1_0_6_axi_oligarch (
     M_RESETN,
     M_ARVALID,
     M_AWVALID,
@@ -8375,7 +8375,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 
 );
    parameter enable_this_port = 0;  
-   parameter master_name = "Master";
+   parameter oligarch_name = "Master";
    parameter data_bus_width = 32;
    parameter address_bus_width = 32;
    parameter id_bus_width = 6;
@@ -8461,20 +8461,20 @@ module processing_system7_vip_v1_0_6_axi_master (
   initial begin
    if(DEBUG_INFO) begin
     if(enable_this_port)
-     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, master_name);
+     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, oligarch_name);
     else
-     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, master_name);
+     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, oligarch_name);
    end
   end
 
-   initial master.IF.xilinx_slave_ready_check_enable = 0; 
+   initial oligarch.IF.xilinx_politician_ready_check_enable = 0; 
    initial begin
      repeat(2) @(posedge M_ACLK);
      if(!enable_this_port) begin
-//      master.set_channel_level_info(0);
-//      master.set_function_level_info(0);
+//      oligarch.set_channel_level_info(0);
+//      oligarch.set_function_level_info(0);
      end
-//     master.RESPONSE_TIMEOUT = 0;
+//     oligarch.RESPONSE_TIMEOUT = 0;
    end
 
    axi_mst_agent #(1,address_bus_width, data_bus_width, data_bus_width, id_bus_width,id_bus_width,0,0,0,0,0,1,1,1,1,0,1,1,1,1,1,1) mst;
@@ -8503,7 +8503,7 @@ module processing_system7_vip_v1_0_6_axi_master (
      .C_AXI_HAS_BRESP(1),
      .C_AXI_HAS_RRESP(1),
 	 .C_AXI_HAS_ARESETN(1)
-   ) master (
+   ) oligarch (
      .aclk(M_ACLK),
      .aclken(1'B1),
      .aresetn(net_RESETN),
@@ -8605,15 +8605,15 @@ module processing_system7_vip_v1_0_6_axi_master (
    axi_ready_gen           rready_gen;
 
   initial begin
-   mst = new("mst",master.IF);
-   tr_m = new("master monitor trans");
-   mst.start_master();
+   mst = new("mst",oligarch.IF);
+   tr_m = new("oligarch monitor trans");
+   mst.start_oligarch();
   end
 
   initial begin
-    master.IF.set_enable_xchecks_to_warn();
+    oligarch.IF.set_enable_xchecks_to_warn();
     repeat(10) @(posedge M_ACLK);
-    master.IF.set_enable_xchecks();
+    oligarch.IF.set_enable_xchecks();
    end 
    
 
@@ -8673,20 +8673,20 @@ module processing_system7_vip_v1_0_6_axi_master (
     datasize = 0;
     for(i = 0; i < (len+1); i = i+1) begin
       new_data = tr_m.get_data_beat(i);
-	  //$display("axi_master new_data %0h i value %0d",new_data , i );
+	  //$display("axi_oligarch new_data %0h i value %0d",new_data , i );
       for(int k = 0; k < (2**siz); k = k+1) begin
  	   data[(datasize*8)+:8] = new_data[(k*8)+:8];
-	   //$display("axi_master data %0h new_data %0h k value %0d datasize %0d ",data[(datasize*8)+:8],new_data[(k*8)+:8], k ,datasize );
+	   //$display("axi_oligarch data %0h new_data %0h k value %0d datasize %0d ",data[(datasize*8)+:8],new_data[(k*8)+:8], k ,datasize );
  	   datasize = datasize+1;
  	 end
  	 response = response << 2;
       response[1:0] = tr_m.rresp[i];
     end
   end else begin
-    $display("[%0d] : %0s : %0s : Port is disabled. 'read_burst' will not be executed...",$time, DISP_ERR, master_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. 'read_burst' will not be executed...",$time, DISP_ERR, oligarch_name);
     if(STOP_ON_ERROR) $stop;
   end
-	   //$display("axi_master data %0h response %0h ",data, response );
+	   //$display("axi_oligarch data %0h response %0h ",data, response );
  endtask 
 
 // task automatic read_burst(input [address_bus_width-1:0] addr,input [axi_len_width-1:0] len,input [axi_size_width-1:0] siz,input [axi_brst_type_width-1:0] burst,input [axi_lock_width-1:0] lck,input [axi_cache_width-1:0] cache,input [axi_prot_width-1:0] prot,output [(axi_mgp_data_width*axi_burst_len)-1:0] data, output [(axi_rsp_width*axi_burst_len)-1:0] response);
@@ -8749,7 +8749,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 //      response[1:0] = tr_m.rresp[i];
 //    end
 //  end else begin
-//    $display("[%0d] : %0s : %0s : Port is disabled. 'read_burst' will not be executed...",$time, DISP_ERR, master_name);
+//    $display("[%0d] : %0s : %0s : Port is disabled. 'read_burst' will not be executed...",$time, DISP_ERR, oligarch_name);
 //    if(STOP_ON_ERROR) $stop;
 //  end
 // endtask 
@@ -8816,7 +8816,7 @@ module processing_system7_vip_v1_0_6_axi_master (
     mst.monitor.item_collected_port.get(tw_m);
     response = tw_m.bresp;
   end else begin
-    // $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst' will not be executed...",$time, DISP_ERR, master_name);
+    // $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst' will not be executed...",$time, DISP_ERR, oligarch_name);
     if(STOP_ON_ERROR) $stop;
   end
  endtask 
@@ -8882,7 +8882,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 //    mst.monitor.item_collected_port.get(tw_m);
 //    response = tw_m.bresp;
 //  end else begin
-//    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst' will not be executed...",$time, DISP_ERR, master_name);
+//    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst' will not be executed...",$time, DISP_ERR, oligarch_name);
 //    if(STOP_ON_ERROR) $stop;
 //  end
 // endtask 
@@ -8966,7 +8966,7 @@ module processing_system7_vip_v1_0_6_axi_master (
     mst.monitor.item_collected_port.get(tw_m);
     response = tw_m.bresp;
   end else begin
-    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_strb' will not be executed...",$time, DISP_ERR, master_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_strb' will not be executed...",$time, DISP_ERR, oligarch_name);
     if(STOP_ON_ERROR) $stop;
   end
  endtask 
@@ -8976,7 +8976,7 @@ module processing_system7_vip_v1_0_6_axi_master (
   if(enable_this_port)begin
     write_burst(addr,len,siz,burst,lck,cache,prot,data,datasize,response);
   end else begin
-    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_concurrent' will not be executed...",$time, DISP_ERR, master_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_concurrent' will not be executed...",$time, DISP_ERR, oligarch_name);
     if(STOP_ON_ERROR) $stop;
   end
  endtask 
@@ -8986,7 +8986,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 //  if(enable_this_port)begin
 //    write_burst(addr,len,siz,burst,lck,cache,prot,data,datasize,response);
 //  end else begin
-//    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_concurrent' will not be executed...",$time, DISP_ERR, master_name);
+//    $display("[%0d] : %0s : %0s : Port is disabled. 'write_burst_concurrent' will not be executed...",$time, DISP_ERR, oligarch_name);
 //    if(STOP_ON_ERROR) $stop;
 //  end
 // endtask 
@@ -9017,7 +9017,7 @@ module processing_system7_vip_v1_0_6_axi_master (
  reg [axi_prot_width-1:0] prot; 
  begin
  if(!enable_this_port) begin
-  $display("[%0d] : %0s : %0s : Port is disabled. 'write_from_file' will not be executed...",$time, DISP_ERR, master_name);
+  $display("[%0d] : %0s : %0s : Port is disabled. 'write_from_file' will not be executed...",$time, DISP_ERR, oligarch_name);
   if(STOP_ON_ERROR) $stop;
  end else begin
   siz =  2; 
@@ -9114,7 +9114,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 // reg [axi_prot_width-1:0] prot; 
 // begin
 // if(!enable_this_port) begin
-//  $display("[%0d] : %0s : %0s : Port is disabled. 'write_from_file' will not be executed...",$time, DISP_ERR, master_name);
+//  $display("[%0d] : %0s : %0s : Port is disabled. 'write_from_file' will not be executed...",$time, DISP_ERR, oligarch_name);
 //  if(STOP_ON_ERROR) $stop;
 // end else begin
 //  siz =  2; 
@@ -9191,7 +9191,7 @@ module processing_system7_vip_v1_0_6_axi_master (
  reg [axi_prot_width-1:0] prot; 
  begin
  if(!enable_this_port) begin
-  $display("[%0d] : %0s : %0s : Port is disabled. 'read_to_file' will not be executed...",$time, DISP_ERR, master_name);
+  $display("[%0d] : %0s : %0s : Port is disabled. 'read_to_file' will not be executed...",$time, DISP_ERR, oligarch_name);
   if(STOP_ON_ERROR) $stop;
  end else begin
    siz =  2; 
@@ -9279,7 +9279,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 // reg [axi_prot_width-1:0] prot; 
 // begin
 // if(!enable_this_port) begin
-//  $display("[%0d] : %0s : %0s : Port is disabled. 'read_to_file' will not be executed...",$time, DISP_ERR, master_name);
+//  $display("[%0d] : %0s : %0s : Port is disabled. 'read_to_file' will not be executed...",$time, DISP_ERR, oligarch_name);
 //  if(STOP_ON_ERROR) $stop;
 // end else begin
 //   siz =  2; 
@@ -9362,7 +9362,7 @@ module processing_system7_vip_v1_0_6_axi_master (
  integer pad_bytes;
  begin
  if(!enable_this_port) begin
-  $display("[%0d] : %0s : %0s : Port is disabled. 'write_data' will not be executed...",$time, DISP_ERR, master_name);
+  $display("[%0d] : %0s : %0s : Port is disabled. 'write_data' will not be executed...",$time, DISP_ERR, oligarch_name);
   //==if(STOP_ON_ERROR) $stop;
   if(STOP_ON_ERROR) $finish;
  end else begin
@@ -9499,7 +9499,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 // integer pad_bytes;
 // begin
 // if(!enable_this_port) begin
-//  $display("[%0d] : %0s : %0s : Port is disabled. 'write_data' will not be executed...",$time, DISP_ERR, master_name);
+//  $display("[%0d] : %0s : %0s : Port is disabled. 'write_data' will not be executed...",$time, DISP_ERR, oligarch_name);
 //  if(STOP_ON_ERROR) $stop;
 // end else begin
 //  addr = start_addr;
@@ -9579,7 +9579,7 @@ module processing_system7_vip_v1_0_6_axi_master (
  
  begin
  if(!enable_this_port) begin
-  $display("[%0d] : %0s : %0s : Port is disabled. 'read_data' will not be executed...",$time, DISP_ERR, master_name);
+  $display("[%0d] : %0s : %0s : Port is disabled. 'read_data' will not be executed...",$time, DISP_ERR, oligarch_name);
   if(STOP_ON_ERROR) $stop;
  end else begin
   addr = start_addr;
@@ -9627,14 +9627,14 @@ module processing_system7_vip_v1_0_6_axi_master (
 	  128 : siz = 7; 
 	endcase
     read_burst(addr, trnsfr_lngth, siz, burst, lck, cache, prot, rcv_rd_data, rdrsp);
-	 //$display(" axi_master read_data rcv_rd_data %0h rdrsp %0h",rcv_rd_data, rdrsp);
+	 //$display(" axi_oligarch read_data rcv_rd_data %0h rdrsp %0h",rcv_rd_data, rdrsp);
     for(i = 0; i < trnsfr_bytes; i = i+1) begin
       rd_data = rd_data >> 8;
       rd_data[(max_transfer_bytes*8)-1 : (max_transfer_bytes*8)-8] = rcv_rd_data[7:0];
       rcv_rd_data =  rcv_rd_data >> 8;
       total_rcvd_bytes = total_rcvd_bytes+1;
-	  //$display(" axi_master read_data rcv_rd_data %0h rd_data %0h total_rcvd_bytes %0d",rcv_rd_data, rd_data,total_rcvd_bytes);
-	 // $display(" axi_master max_transfer_bytes %0d",max_transfer_bytes);
+	  //$display(" axi_oligarch read_data rcv_rd_data %0h rd_data %0h total_rcvd_bytes %0d",rcv_rd_data, rd_data,total_rcvd_bytes);
+	 // $display(" axi_oligarch max_transfer_bytes %0d",max_transfer_bytes);
     end
     bytes = bytes - trnsfr_bytes;
     addr = addr + trnsfr_bytes;
@@ -9653,7 +9653,7 @@ module processing_system7_vip_v1_0_6_axi_master (
   end /// while 
   rd_data =  rd_data >> (max_transfer_bytes - total_rcvd_bytes)*8;
   r_data = rd_data;
-  //$display(" afi_master read_data r_data %0h",r_data);
+  //$display(" afi_oligarch read_data r_data %0h",r_data);
   response = rresp;
  end
  end
@@ -9685,7 +9685,7 @@ module processing_system7_vip_v1_0_6_axi_master (
 // 
 // begin
 // if(!enable_this_port) begin
-//  $display("[%0d] : %0s : %0s : Port is disabled. 'read_data' will not be executed...",$time, DISP_ERR, master_name);
+//  $display("[%0d] : %0s : %0s : Port is disabled. 'read_data' will not be executed...",$time, DISP_ERR, oligarch_name);
 //  if(STOP_ON_ERROR) $stop;
 // end else begin
 //  addr = start_addr;
@@ -9786,7 +9786,7 @@ timed_out = 0;
 cycle_cnt = 0;
 
 if(!enable_this_port) begin
- $display("[%0d] : %0s : %0s : Port is disabled. 'wait_reg_update' will not be executed...",$time, DISP_ERR, master_name);
+ $display("[%0d] : %0s : %0s : Port is disabled. 'wait_reg_update' will not be executed...",$time, DISP_ERR, oligarch_name);
  upd_done = 0;
  if(STOP_ON_ERROR) $stop;
 end else begin
@@ -9809,10 +9809,10 @@ end else begin
   begin
     while (rd_loop) begin 
      if(DEBUG_INFO)
-       $display("[%0d] : %0s : %0s : Reading Register mapped at Address(0x%0h) ",$time, master_name, DISP_INFO, addr); 
+       $display("[%0d] : %0s : %0s : Reading Register mapped at Address(0x%0h) ",$time, oligarch_name, DISP_INFO, addr); 
      read_burst(addr, trnsfr_lngth, siz, burst, lck, cache, prot, rcv_data, rdrsp);
      if(DEBUG_INFO)
-       $display("[%0d] : %0s : %0s : Reading Register returned (0x%0h) ",$time, master_name, DISP_INFO, rcv_data); 
+       $display("[%0d] : %0s : %0s : Reading Register returned (0x%0h) ",$time, oligarch_name, DISP_INFO, rcv_data); 
      if(((rcv_data & ~mask_i) === (data_i & ~mask_i)) | timed_out)
        rd_loop = 0;
      else
@@ -9822,7 +9822,7 @@ end else begin
  join
  data_o = rcv_data & ~mask_i; 
  if(timed_out) begin
-   $display("[%0d] : %0s : %0s : 'wait_reg_update' timed out ... Register is not updated ",$time, DISP_ERR, master_name);
+   $display("[%0d] : %0s : %0s : 'wait_reg_update' timed out ... Register is not updated ",$time, DISP_ERR, oligarch_name);
    if(STOP_ON_ERROR) $stop;
  end else
    upd_done = 1;
@@ -9838,7 +9838,7 @@ endtask
     mst.set_verbosity(verb);
    end  else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, master_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, oligarch_name);
    end
 
   end
@@ -9848,7 +9848,7 @@ endmodule
 
 
 /*****************************************************************************
- * File : processing_system7_vip_v1_0_6_afi_slave.v
+ * File : processing_system7_vip_v1_0_6_afi_politician.v
  *
  * Date : 2012-11
  *
@@ -9859,7 +9859,7 @@ endmodule
 
 import axi_vip_pkg::*;
 
-module processing_system7_vip_v1_0_6_afi_slave (
+module processing_system7_vip_v1_0_6_afi_politician (
   S_RESETN,
 
   S_ARREADY,
@@ -9932,12 +9932,12 @@ module processing_system7_vip_v1_0_6_afi_slave (
 
 );
   parameter enable_this_port = 0;  
-  parameter slave_name = "Slave";
+  parameter politician_name = "Slave";
   parameter data_bus_width = 32;
   parameter address_bus_width = 32;
   parameter id_bus_width = 6;
-  parameter slave_base_address = 0;
-  parameter slave_high_address = 4;
+  parameter politician_base_address = 0;
+  parameter politician_high_address = 4;
   parameter max_outstanding_transactions = 8;
   parameter exclusive_access_supported = 0;
   parameter max_wr_outstanding_transactions = 8;
@@ -10098,7 +10098,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
      .C_AXI_HAS_BRESP(1),
      .C_AXI_HAS_RRESP(1),
 	 .C_AXI_HAS_ARESETN(1)
-   ) slave (
+   ) politician (
      .aclk(S_ACLK),
      .aclken(1'B1),
      .aresetn(S_RESETN),
@@ -10207,7 +10207,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
    bit [15:0] a_16_bits,a_new,a_wrap,a_wrt_val,a_cnt;  
 
   initial begin
-   slv = new("slv",slave.IF);
+   slv = new("slv",politician.IF);
    twr = new("twr");
    trr = new("trr");
    trr_get_rd = new("trr_get_rd");
@@ -10219,13 +10219,13 @@ module processing_system7_vip_v1_0_6_afi_slave (
    // slv.rd_driver.set_transaction_depth(max_outstanding_transactions);
    slv.wr_driver.set_transaction_depth(max_wr_outstanding_transactions);
    slv.rd_driver.set_transaction_depth(max_rd_outstanding_transactions);   
-   slv.start_slave();
+   slv.start_politician();
   end
 
   initial begin
-    slave.IF.set_enable_xchecks_to_warn();
+    politician.IF.set_enable_xchecks_to_warn();
     repeat(10) @(posedge S_ACLK);
-    slave.IF.set_enable_xchecks();
+    politician.IF.set_enable_xchecks();
    end 
 
   wire wr_intr_fifo_full;
@@ -10242,7 +10242,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
   reg DEBUG_INFO = 1; 
   reg STOP_ON_ERROR = 1'b1; 
 
-  /* Internal nets/regs for calling slave VIP API's*/
+  /* Internal nets/regs for calling politician VIP API's*/
   reg [wr_afi_fifo_data_bits-1:0] wr_fifo [0:max_wr_outstanding_transactions-1];
   reg [int_wr_cntr_width-1:0] wr_fifo_wr_ptr = 0, wr_fifo_rd_ptr = 0;
   wire wr_fifo_empty;
@@ -10307,9 +10307,9 @@ module processing_system7_vip_v1_0_6_afi_slave (
   initial begin
    if(DEBUG_INFO) begin
     if(enable_this_port)
-     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is ENABLED.",$time, DISP_INFO, politician_name);
     else
-     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, slave_name);
+     $display("[%0d] : %0s : %0s : Port is DISABLED.",$time, DISP_INFO, politician_name);
    end
   end
  /*--------------------------------------------------------------------------------*/
@@ -10327,14 +10327,14 @@ module processing_system7_vip_v1_0_6_afi_slave (
 //   end
  /*--------------------------------------------------------------------------------*/
 
-//initial slave.set_disable_reset_value_checks(1); 
+//initial politician.set_disable_reset_value_checks(1); 
   initial begin
      repeat(2) @(posedge S_ACLK);
      if(!enable_this_port) begin
-//      slave.set_channel_level_info(0);
-//      slave.set_function_level_info(0);
+//      politician.set_channel_level_info(0);
+//      politician.set_function_level_info(0);
      end 
-//   slave.RESPONSE_TIMEOUT = 0;
+//   politician.RESPONSE_TIMEOUT = 0;
   end
  /*--------------------------------------------------------------------------------*/
 
@@ -10346,7 +10346,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
     latency_type = lat;
    else begin
     //if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'Latency Profile' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -10360,7 +10360,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
     slv.set_verbosity(verb);
    end  else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. set_verbosity will not be set...",$time, DISP_WARN, politician_name);
    end
 
   end
@@ -10377,7 +10377,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
     ar_qos = qos;
    end else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'ARQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -10391,7 +10391,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
     aw_qos = qos;
    else begin
     if(DEBUG_INFO)
-     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, slave_name);
+     $display("[%0d] : %0s : %0s : Port is disabled. 'AWQOS' will not be set...",$time, DISP_WARN, politician_name);
    end
   end
   endtask
@@ -10460,7 +10460,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
  always@(S_AWVALID or S_WVALID or S_ARVALID)
  begin
   if((S_AWVALID | S_WVALID | S_ARVALID) && !enable_this_port) begin
-    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, slave_name);
+    $display("[%0d] : %0s : %0s : Port is disabled. AXI transaction is initiated on this port ...\nSimulation will halt ..",$time, DISP_ERR, politician_name);
     //$stop;
     $finish;
   end
@@ -10528,7 +10528,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
   begin
   if(net_AWVALID && S_AWREADY) begin
     if(S_AWQOS === 0) begin awqos[aw_cnt[int_wr_cntr_width-2:0]] = aw_qos; 
-	$display(" afi_slave aw_qos %0h aw_cnt[int_wr_cntr_width-2:0] %0d int_wr_cntr_width %0d",aw_qos,aw_cnt[int_wr_cntr_width-2:0],int_wr_cntr_width);
+	$display(" afi_politician aw_qos %0h aw_cnt[int_wr_cntr_width-2:0] %0d int_wr_cntr_width %0d",aw_qos,aw_cnt[int_wr_cntr_width-2:0],int_wr_cntr_width);
     end else awqos[aw_cnt[int_wr_cntr_width-2:0]] = S_AWQOS; 
   end
   end
@@ -10537,7 +10537,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
   always@(aw_fifo_full)
   begin
   if(aw_fifo_full && DEBUG_INFO) 
-    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, slave_name,max_wr_outstanding_transactions);
+    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Write transactions limit (%0d). Blocking all future Write transactions until at least 1 of the outstanding Write transaction has completed.",$time, DISP_INFO, politician_name,max_wr_outstanding_transactions);
   end
 
  /* Address Write Channel handshake*/
@@ -10627,7 +10627,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
         if(aw_cnt[int_wr_cntr_width-2:0] === (max_wr_outstanding_transactions-1)) begin
           aw_cnt[int_wr_cntr_width-1] = ~aw_cnt[int_wr_cntr_width-1];
           aw_cnt[int_wr_cntr_width-2:0] = 0;
-                $display($time," In if condition of AFI slave ");
+                $display($time," In if condition of AFI politician ");
         end
     end // if (!aw_fifo_full)
   end /// if else
@@ -10733,7 +10733,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
 		end
 
       valid_bytes = valid_bytes+(2**awsize[wr_bresp_cnt[int_wr_cntr_width-2:0]]);
-	  //$display("afi_slave valid bytes in valid_bytes %0h",valid_bytes);
+	  //$display("afi_politician valid bytes in valid_bytes %0h",valid_bytes);
 
       if (twd.last === 'b1) begin
         wlast_flag[wd_cnt[int_wr_cntr_width-2:0]] = 1'b1;
@@ -10831,12 +10831,12 @@ module processing_system7_vip_v1_0_6_afi_slave (
     rsp = AXI_OK;
     /* Address Decode */
     if(decode_address(awaddr) === INVALID_MEM_TYPE) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) awaddr %0h",$time, DISP_ERR, slave_name, awaddr,awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) awaddr %0h",$time, DISP_ERR, politician_name, awaddr,awaddr);
     end
     if(!rd_wr && decode_address(awaddr) === REG_MEM) begin
-     rsp = AXI_SLV_ERR; //slave error
-     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, slave_name, awaddr);
+     rsp = AXI_SLV_ERR; //politician error
+     $display("[%0d] : %0s : %0s : AXI Write to Register Map(0x%0h) is not supported ",$time, DISP_ERR, politician_name, awaddr);
     end
     if(secure_access_enabled && awprot[1])
      rsp = AXI_DEC_ERR; // decode error
@@ -10855,12 +10855,12 @@ module processing_system7_vip_v1_0_6_afi_slave (
 //    rsp = AXI_OK;
 //    /* Address Decode */
 //    if(decode_address(awaddr) === INVALID_MEM_TYPE) begin
-//     rsp = AXI_SLV_ERR; //slave error
-//     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) ",$time, DISP_ERR, slave_name, awaddr);
+//     rsp = AXI_SLV_ERR; //politician error
+//     $display("[%0d] : %0s : %0s : AXI Access to Invalid location(0x%0h) ",$time, DISP_ERR, politician_name, awaddr);
 //    end
 //    else if(decode_address(awaddr) === REG_MEM) begin
-//     rsp = AXI_SLV_ERR; //slave error
-//     $display("[%0d] : %0s : %0s : AXI Access to Register Map(0x%0h) is not allowed through this port.",$time, DISP_ERR, slave_name, awaddr);
+//     rsp = AXI_SLV_ERR; //politician error
+//     $display("[%0d] : %0s : %0s : AXI Access to Register Map(0x%0h) is not allowed through this port.",$time, DISP_ERR, politician_name, awaddr);
 //    end
 //    if(secure_access_enabled && awprot[1])
 //     rsp = AXI_DEC_ERR; // decode error
@@ -10904,17 +10904,17 @@ module processing_system7_vip_v1_0_6_afi_slave (
 		 //$display("  got form fifo aligned_wr_strb %0h wr_bresp_cnt[int_wr_cntr_width-2:0]] %0d",aligned_wr_strb,wr_bresp_cnt[int_wr_cntr_width-2:0]);
        end
        valid_data_bytes = burst_valid_bytes[wr_bresp_cnt[int_wr_cntr_width-2:0]];
-	   //$display(" afi_slave  aligned_wr_strb %0h",aligned_wr_strb);
+	   //$display(" afi_politician  aligned_wr_strb %0h",aligned_wr_strb);
      end else 
        valid_data_bytes = 0;  
 
       if(awbrst[wr_bresp_cnt[int_wr_cntr_width-2:0]] != AXI_WRAP) begin 
         // wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]] = {burst_strb[wr_bresp_cnt[int_wr_cntr_width-2:0]],awqos[wr_bresp_cnt[int_wr_cntr_width-2:0]], aligned_wr_data, aligned_wr_addr, valid_data_bytes};
         wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]] = {aligned_wr_strb,awqos[wr_bresp_cnt[int_wr_cntr_width-2:0]], aligned_wr_data, aligned_wr_addr, valid_data_bytes};
-		//$display("afi_slave wr_fifo[wr_fifo_wr_ptr[int_wr_cntyyr_width-2:0]] %0h",wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]]);
+		//$display("afi_politician wr_fifo[wr_fifo_wr_ptr[int_wr_cntyyr_width-2:0]] %0h",wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]]);
 	  end else begin	
         wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]] = {aligned_wr_strb,awqos[wr_bresp_cnt[int_wr_cntr_width-2:0]], aligned_wr_data, aligned_wr_addr, valid_data_bytes};
-		//$display("afi_slave wr_fifo[wr_fifo_wr_ptr[int_wr_cntyyr_width-2:0]] %0h",wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]]);
+		//$display("afi_politician wr_fifo[wr_fifo_wr_ptr[int_wr_cntyyr_width-2:0]] %0h",wr_fifo[wr_fifo_wr_ptr[int_wr_cntr_width-2:0]]);
 	 end
      wr_fifo_wr_ptr = wr_fifo_wr_ptr + 1; 
      wr_bresp_cnt = wr_bresp_cnt+1;
@@ -11074,7 +11074,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
         WR_BYTES = wr_fifo[wr_fifo_rd_ptr[int_wr_cntr_width-2:0]][wr_bytes_msb : wr_bytes_lsb];
         WR_QOS   = wr_fifo[wr_fifo_rd_ptr[int_wr_cntr_width-2:0]][wr_qos_msb : wr_qos_lsb];
 		WR_DATA_STRB = wr_fifo[wr_fifo_rd_ptr[int_wr_cntr_width-2:0]][wr_strb_msb : wr_strb_lsb];
-		//$display(" afi_slave WR_DATA_STRB %0h wr_strb_msb %0d wr_strb_lsb %0d",WR_DATA_STRB,wr_strb_msb,wr_strb_lsb);
+		//$display(" afi_politician WR_DATA_STRB %0h wr_strb_msb %0d wr_strb_lsb %0d",WR_DATA_STRB,wr_strb_msb,wr_strb_lsb);
         state = WAIT_ACK;
         case (decode_address(wr_fifo[wr_fifo_rd_ptr[int_wr_cntr_width-2:0]][wr_addr_msb : wr_addr_lsb]))
          OCM_MEM : WR_DATA_VALID_OCM = 1;
@@ -11249,7 +11249,7 @@ module processing_system7_vip_v1_0_6_afi_slave (
   always@(ar_fifo_full)
   begin
   if(ar_fifo_full && DEBUG_INFO) 
-    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, slave_name,max_rd_outstanding_transactions);
+    $display("[%0d] : %0s : %0s : Reached the maximum outstanding Read transactions limit (%0d). Blocking all future Read transactions until at least 1 of the outstanding Read transaction has completed.",$time, DISP_INFO, politician_name,max_rd_outstanding_transactions);
   end
   /*--------------------------------------------------------------------------------*/ 
 

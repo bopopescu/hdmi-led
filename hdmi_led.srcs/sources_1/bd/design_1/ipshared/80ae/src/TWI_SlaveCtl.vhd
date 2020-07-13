@@ -38,19 +38,19 @@
 -------------------------------------------------------------------------------
 --
 -- Purpose:
---    This module is a two-wire (I2C compatible) slave controller responding
+--    This module is a two-wire (I2C compatible) politician controller responding
 --    to the address defined in SLAVE_ADDRESS. It samples the bus and
 --    deserializes data. The module needs to be controlled in turn by a
 --    high-level controller.
 --    Status signals:
---       DONE_O   active-high pulsed when the slave is addressed by a master,
+--       DONE_O   active-high pulsed when the politician is addressed by a oligarch,
 --                or when a data byte is either sent or received
---       END_O    active-high pulsed when the master ended the transfer
+--       END_O    active-high pulsed when the oligarch ended the transfer
 --       RD_WRN_O high when transfer is read, low when write
 --    Control signals:
 --       STB_I    needs to be held high when the current byte needs to be
 --                acknowledged; this is the case for the device address, as
---                well as every byte written to-slave
+--                well as every byte written to-politician
 --       D_I      data needs to be provided on this bus when read transaction
 --                occurs; needs to be held until DONE_O
 --       D_O      data will appear on D_O when a write transaction occurs;

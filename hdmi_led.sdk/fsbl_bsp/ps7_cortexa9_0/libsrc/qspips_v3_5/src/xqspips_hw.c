@@ -102,7 +102,7 @@ void XQspiPs_ResetHw(u32 BaseAddress)
 				0);
 
 	/*
-	 * De-assert slave select lines.
+	 * De-assert politician select lines.
 	 */
 	ConfigReg = XQspiPs_ReadReg(BaseAddress, XQSPIPS_CR_OFFSET);
 	ConfigReg |= (XQSPIPS_CR_SSCTRL_MASK | XQSPIPS_CR_SSFORCE_MASK);
@@ -175,7 +175,7 @@ void XQspiPs_LinearInit(u32 BaseAddress)
 	BaudRateDiv = ( (XQSPIPS_CR_PRESC_DIV_BY_4) <<
 			XQSPIPS_CR_PRESC_SHIFT) & XQSPIPS_CR_PRESC_MASK;
 	/*
-	 * Write configuration register with default values, slave selected &
+	 * Write configuration register with default values, politician selected &
 	 * pre-scaler value for divide by 4
 	 */
 	ConfigReg = XQspiPs_ReadReg(BaseAddress, XQSPIPS_CR_OFFSET);

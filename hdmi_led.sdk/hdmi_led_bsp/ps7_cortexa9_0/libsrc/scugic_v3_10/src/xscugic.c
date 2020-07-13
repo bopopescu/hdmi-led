@@ -77,7 +77,7 @@
 * 3.2   asa  02/29/16 Modified DistributorInit function for Zynq AMP case. The
 *                     distributor is left uninitialized for Zynq AMP. It is
 *                     assumed that the distributor will be initialized by
-*                     Linux master. However for CortexR5 case, the earlier code
+*                     Linux oligarch. However for CortexR5 case, the earlier code
 *                     is left unchanged where the the interrupt processor target
 *                     registers in the distributor is initialized with the
 *                     corresponding CPU ID on which the application built over
@@ -110,7 +110,7 @@
 *                     interrupts in case they are being used only by current
 *                     cpu. It also removes current cpu from interrupt target
 *                     registers for all interrupts.
-*       kvn  02/17/17 Add support for changing GIC CPU master at run time.
+*       kvn  02/17/17 Add support for changing GIC CPU oligarch at run time.
 *       kvn  02/28/17 Make the CpuId as static variable and Added new
 *                     XScugiC_GetCpuId to access CpuId.
 * 3.9   mus  02/21/18 Added new API's XScuGic_UnmapAllInterruptsFromCpu and
@@ -265,7 +265,7 @@ static void DistributorInit(XScuGic *InstancePtr, u32 CpuID)
 #if USE_AMP == 1 && (defined(ARMA9) || defined(__aarch64__))
 #warning "Building GIC for AMP"
 	/*
-	 * GIC initialization is taken care by master CPU in
+	 * GIC initialization is taken care by oligarch CPU in
 	 * openamp configuration, so do nothing and return.
 	 */
 	return;

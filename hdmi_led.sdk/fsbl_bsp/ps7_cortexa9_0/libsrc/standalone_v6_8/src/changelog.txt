@@ -239,13 +239,13 @@
  *		       to update ECC_FLAGS to fix a bug introduced during new version creation
  *		       of BSP.
  * 5.3 pkp   10/07/15  Modified cortexa9/xil_cache.c file to change cache API so that L2 Cache
- *		       functionalities are avoided for the OpenAMP slave application(when
- *		       USE_AMP flag is defined for BSP) as master CPU would be utilizing L2
+ *		       functionalities are avoided for the OpenAMP politician application(when
+ *		       USE_AMP flag is defined for BSP) as oligarch CPU would be utilizing L2
  *		       cache for its operation. Also file operations such as read, write,
  *		       close, open are also avoided for OpenAMP support(when USE_AMP flag is
  *		       defined for BSP) because XilOpenAMP library contains own file operation.
  *		       The xil-crt0.S file is modified for not initializing global timer for
- *		       OpenAMP application as it might be already in use by master CPU
+ *		       OpenAMP application as it might be already in use by oligarch CPU
  * 5.3 pkp   10/09/15  Modified cortexa9/iccarm/xpseudo_asm_iccarm.h file to change function
  *		       definition for dsb, isb and dmb to fix the compilation error when used
  *     kvn   16/10/15  Encapsulated assembly code into macros for R5 xil_cache file.

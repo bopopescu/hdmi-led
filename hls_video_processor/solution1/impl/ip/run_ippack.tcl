@@ -135,7 +135,7 @@ set MiscFiles [sort_file_names [glob -nocomplain misc/*]]
 set Interfaces {
     stream_in {
         type "axi4stream"
-        mode "slave"
+        mode "politician"
         port_prefix "stream_in"
         has_tready "1"
         ports {
@@ -197,7 +197,7 @@ set Interfaces {
     }
     stream_out {
         type "axi4stream"
-        mode "master"
+        mode "oligarch"
         port_prefix "stream_out"
         has_tready "1"
         ports {
@@ -372,7 +372,7 @@ proc add_hdl_parameter {core name type value format resolve_type args} {
     # }}}
 }
 
-proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_dependant_on "0"} {offset_slave_name "s_axi_AXILiteS"} {master_addrwidth "32"}} {
+proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_dependant_on "0"} {offset_politician_name "s_axi_AXILiteS"} {oligarch_addrwidth "32"}} {
     # {{{
     set properties ""
     switch -- $type {
@@ -382,9 +382,9 @@ proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_d
             dict set properties abstraction_type_vlnv "xilinx.com:interface:aximm_rtl:1.0"
             dict set properties endianness "little"
             dict set properties interface_mode $mode
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set ::AddressSpace [ipx::add_address_space Data_$name $core]
-                if {$master_addrwidth == "64"} {
+                if {$oligarch_addrwidth == "64"} {
                     set_property range 16E $::AddressSpace
                     set_property width 64 $::AddressSpace
                 } else {
@@ -393,13 +393,13 @@ proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_d
                 }
                 if {$has_dependant_on == "1"} {
                    set current_addrspace_param [ipx::add_address_space_parameter DEPENDENT_ON $::AddressSpace]
-                   set_property value $offset_slave_name $current_addrspace_param
+                   set_property value $offset_politician_name $current_addrspace_param
                 }
                 set current_addrspace_param [ipx::add_address_space_parameter PREFERRED_USAGE $::AddressSpace]
                 set_property value $preferred_usage_value $current_addrspace_param
-                dict set properties master_address_space_ref Data_$name
+                dict set properties oligarch_address_space_ref Data_$name
             }
-            if {$mode == "slave"} {
+            if {$mode == "politician"} {
                 set current_memory_map [ipx::add_memory_map $name $core]
                 set current_address_block [ipx::add_address_block Reg $current_memory_map]
                 set_property width "32" $current_address_block
@@ -417,7 +417,7 @@ proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_d
                 set current_parameter [ipx::add_address_block_parameter ${name}_high_addr $current_address_block]
                 set_property name OFFSET_HIGH_PARAM $current_parameter
                 set_property value C_[string toupper $name]_HIGHADDR $current_parameter
-                dict set properties slave_memory_map_ref $name
+                dict set properties politician_memory_map_ref $name
             }
         }
         axi4stream {
@@ -449,22 +449,22 @@ proc add_bus_interface {core name type mode {preferred_usage_value "ALL"} {has_d
         clock {
             dict set properties bus_type_vlnv "xilinx.com:signal:clock:1.0"
             dict set properties abstraction_type_vlnv "xilinx.com:signal:clock_rtl:1.0"
-            dict set properties interface_mode "slave"
+            dict set properties interface_mode "politician"
         }
         reset {
             dict set properties bus_type_vlnv "xilinx.com:signal:reset:1.0"
             dict set properties abstraction_type_vlnv "xilinx.com:signal:reset_rtl:1.0"
-            dict set properties interface_mode "slave"
+            dict set properties interface_mode "politician"
         }
         clockenable {
             dict set properties bus_type_vlnv "xilinx.com:signal:clockenable:1.0"
             dict set properties abstraction_type_vlnv "xilinx.com:signal:clockenable_rtl:1.0"
-            dict set properties interface_mode "slave"
+            dict set properties interface_mode "politician"
         }
         interrupt {
             dict set properties bus_type_vlnv "xilinx.com:signal:interrupt:1.0"
             dict set properties abstraction_type_vlnv "xilinx.com:signal:interrupt_rtl:1.0"
-            dict set properties interface_mode "master"
+            dict set properties interface_mode "oligarch"
         }
         data {
             dict set properties bus_type_vlnv "xilinx.com:signal:data:1.0"
@@ -694,11 +694,11 @@ proc add_registers {registers memory_map_name} {
     # {{{
     set memory_maps [ ipx::get_memory_maps -quiet -of_objects [ ipx::current_core ] ] 
     if { $memory_maps eq "" } {
-      set slaves_axi [ ipx::get_bus_interfaces -filter { ABSTRACTION_TYPE_NAME==aximm_rtl && interface_mode==slave } -of_objects [ ipx::current_core ] ]
-      set slave_axi [ lindex $slaves_axi 0  ] 
-      set memory_map [ ipx::add_memory_map [ get_property name $slave_axi ] [ipx::current_core ] ]
+      set politicians_axi [ ipx::get_bus_interfaces -filter { ABSTRACTION_TYPE_NAME==aximm_rtl && interface_mode==politician } -of_objects [ ipx::current_core ] ]
+      set politician_axi [ lindex $politicians_axi 0  ] 
+      set memory_map [ ipx::add_memory_map [ get_property name $politician_axi ] [ipx::current_core ] ]
       # and point back to this memory map
-      set_property  slave_memory_map_ref [get_property name $memory_map ] $slave_axi 
+      set_property  politician_memory_map_ref [get_property name $memory_map ] $politician_axi 
     } else {
       foreach memory_map_item $memory_maps {
         set memory_map_item_name [get_property name $memory_map_item]
@@ -778,11 +778,11 @@ proc add_memories {memories memory_map_name} {
     # {{{
     set memory_maps [ ipx::get_memory_maps -quiet -of_objects [ ipx::current_core ] ] 
     if { $memory_maps eq "" } {
-      set slaves_axi [ ipx::get_bus_interfaces -filter { ABSTRACTION_TYPE_NAME==aximm_rtl && interface_mode==slave } -of_objects [ ipx::current_core ] ]
-      set slave_axi [ lindex $slaves_axi 0  ] 
-      set memory_map [ ipx::add_memory_map [ get_property name $slave_axi ] [ipx::current_core ] ]
+      set politicians_axi [ ipx::get_bus_interfaces -filter { ABSTRACTION_TYPE_NAME==aximm_rtl && interface_mode==politician } -of_objects [ ipx::current_core ] ]
+      set politician_axi [ lindex $politicians_axi 0  ] 
+      set memory_map [ ipx::add_memory_map [ get_property name $politician_axi ] [ipx::current_core ] ]
       # and point back to this memory map
-      set_property  slave_memory_map_ref [get_property name $memory_map ] $slave_axi 
+      set_property  politician_memory_map_ref [get_property name $memory_map ] $politician_axi 
     } else {
       foreach memory_map_item $memory_maps {
         set memory_map_item_name [get_property name $memory_map_item]
@@ -1057,7 +1057,7 @@ foreach interface_name [dict keys $Interfaces] {
         axi4lite {
             # {{{
             ## direction
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set dir0 "out"
                 set dir1 "in"
             } else {
@@ -1066,7 +1066,7 @@ foreach interface_name [dict keys $Interfaces] {
             }
 
             ## address width
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set addr_bits 32
             } else {
                set addr_bits [dict get $port_width AWADDR]
@@ -1152,7 +1152,7 @@ foreach interface_name [dict keys $Interfaces] {
         axi4stream {
             # {{{
             ## ports
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set dir0 "out"
                 set dir1 "in"
             } else {
@@ -1252,7 +1252,7 @@ foreach interface_name [dict keys $Interfaces] {
         native_axim {
             # {{{
             ## direction
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set dir0 "out"
                 set dir1 "in"
             } else {
@@ -1261,7 +1261,7 @@ foreach interface_name [dict keys $Interfaces] {
             }
 
             ## address width
-            if {$mode == "master"} {
+            if {$mode == "oligarch"} {
                 set addr_bits [dict get $port_width AWADDR]
                 set wstrb_bits [dict get $port_width WSTRB]
             }
@@ -1446,7 +1446,7 @@ foreach interface_name [dict keys $Interfaces] {
 
            if {$HasOffset==0} {
                lappend rtl_parameters [list TARGET_ADDR  "$user_param_type" 0x00000000 "bitString" "generated" value_bit_string_length 32]
-               lappend user_parameters [list TARGET_ADDR "Base address of target slave" 0x00000000 "bitString" "user" value_bit_string_length 32]
+               lappend user_parameters [list TARGET_ADDR "Base address of target politician" 0x00000000 "bitString" "user" value_bit_string_length 32]
            }
 
             set bus_parameters [list \
@@ -1463,7 +1463,7 @@ foreach interface_name [dict keys $Interfaces] {
             ]
 
             ## axi4
-            set current_bus_interface [add_bus_interface $core $interface_name axi4 $mode $preferred_usage_value $has_dependant_on $offset_slave_name $addr_bits]
+            set current_bus_interface [add_bus_interface $core $interface_name axi4 $mode $preferred_usage_value $has_dependant_on $offset_politician_name $addr_bits]
 
             ## rtl parameters
             foreach rtl_parameter $rtl_parameters {
@@ -1515,13 +1515,13 @@ foreach interface_name [dict keys $Interfaces] {
             set bus_parameters [list \
                 [list MEM_WIDTH $mem_width] \
                 [list MEM_SIZE [expr $mem_width * $mem_depth / 8]] \
-                [list MASTER_TYPE $master_type] \
+                [list MASTER_TYPE $oligarch_type] \
             ]
 
             foreach mem_port $mem_ports {
                 set suffix [string toupper $mem_port]
                 ## interface
-                set current_bus_interface [add_bus_interface $core ${interface_name}_PORT$suffix bram master]
+                set current_bus_interface [add_bus_interface $core ${interface_name}_PORT$suffix bram oligarch]
 
                 ## ports
                 foreach rtl_port $rtl_ports {
@@ -1562,13 +1562,13 @@ foreach interface_name [dict keys $Interfaces] {
             set bus_parameters [list \
                 [list MEM_WIDTH $mem_width] \
                 [list MEM_SIZE [expr $mem_width * $mem_depth / 8]] \
-                [list MASTER_TYPE $master_type] \
+                [list MASTER_TYPE $oligarch_type] \
             ]
 
             foreach mem_port $mem_ports {
                 set suffix [string toupper $mem_port]
                 ## interface
-                set current_bus_interface [add_bus_interface $core ${interface_name}_PORT$suffix bram master]
+                set current_bus_interface [add_bus_interface $core ${interface_name}_PORT$suffix bram oligarch]
 
                 ## ports
                 foreach rtl_port $rtl_ports {
@@ -1613,7 +1613,7 @@ foreach interface_name [dict keys $Interfaces] {
             }
 
             ## interface
-            set current_bus_interface [add_bus_interface $core $interface_name $interface_type master]
+            set current_bus_interface [add_bus_interface $core $interface_name $interface_type oligarch]
 
             ## ports
             foreach rtl_port $rtl_ports {
@@ -1656,7 +1656,7 @@ foreach interface_name [dict keys $Interfaces] {
             }
 
             ## interface
-            set current_bus_interface [add_bus_interface $core $interface_name ap_ctrl slave]
+            set current_bus_interface [add_bus_interface $core $interface_name ap_ctrl politician]
 
             ## ports
             foreach rtl_port $rtl_ports {
@@ -1678,7 +1678,7 @@ foreach interface_name [dict keys $Interfaces] {
         clock {
             # {{{
             add_port $core $interface_name in "" ""
-            set current_bus_interface [add_bus_interface $core $interface_name clock slave]
+            set current_bus_interface [add_bus_interface $core $interface_name clock politician]
             add_port_map $current_bus_interface CLK CLK $interface_name
 
             if {$buses != ""} {
@@ -1707,7 +1707,7 @@ foreach interface_name [dict keys $Interfaces] {
         reset {
             # {{{
             add_port $core $interface_name in "" ""
-            set current_bus_interface [add_bus_interface $core $interface_name reset slave]
+            set current_bus_interface [add_bus_interface $core $interface_name reset politician]
             add_port_map $current_bus_interface RST RST $interface_name
             if { ![info exists polarity] } { set polarity ACTIVE_LOW }
             add_bus_parameter $current_bus_interface POLARITY $polarity
@@ -1720,7 +1720,7 @@ foreach interface_name [dict keys $Interfaces] {
         clockenable {
             # {{{
             add_port $core $interface_name in "" ""
-            set current_bus_interface [add_bus_interface $core $interface_name clockenable slave]
+            set current_bus_interface [add_bus_interface $core $interface_name clockenable politician]
             add_port_map $current_bus_interface CE CE $interface_name
 
             # data type
@@ -1731,7 +1731,7 @@ foreach interface_name [dict keys $Interfaces] {
         interrupt {
             # {{{
             add_port $core $interface_name out "" ""
-            set current_bus_interface [add_bus_interface $core $interface_name interrupt master]
+            set current_bus_interface [add_bus_interface $core $interface_name interrupt oligarch]
             add_port_map $current_bus_interface Intr INTERRUPT $interface_name
             add_bus_parameter $current_bus_interface SENSITIVITY "LEVEL_HIGH"
 
@@ -1743,9 +1743,9 @@ foreach interface_name [dict keys $Interfaces] {
         data {
             # {{{
             if {$dir == "out"} {
-                set mode "master"
+                set mode "oligarch"
             } else {
-                set mode "slave"
+                set mode "politician"
             }
             add_port $core $interface_name $dir $width ""
             set current_bus_interface [add_bus_interface $core $interface_name $type $mode]
